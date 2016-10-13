@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import br.ufscar.kdm_manager.core.complements.complementRelationship.factory.ComplementsRelationshipFactory;
-import br.ufscar.kdm_manager.core.complements.complementRelationship.impl.complements.ComplementsRelationshipHasTypeImpl;
+import br.ufscar.kdm_manager.core.complements.complementRelationship.impl.complements.java.ComplementsRelationshipHasTypeImpl;
 import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsGenericRelationship;
 
 public class ComplementsRelationshipFactoryImpl extends EFactoryImpl implements ComplementsRelationshipFactory {

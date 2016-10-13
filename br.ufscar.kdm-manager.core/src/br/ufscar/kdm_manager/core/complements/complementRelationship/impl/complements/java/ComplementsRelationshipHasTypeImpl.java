@@ -1,4 +1,4 @@
-package br.ufscar.kdm_manager.core.complements.complementRelationship.impl.complements;
+package br.ufscar.kdm_manager.core.complements.complementRelationship.impl.complements.java;
 
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
