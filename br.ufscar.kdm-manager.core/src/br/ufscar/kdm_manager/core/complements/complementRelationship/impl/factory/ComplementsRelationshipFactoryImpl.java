@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import br.ufscar.kdm_manager.core.complements.complementRelationship.factory.ComplementsRelationshipFactory;
 import br.ufscar.kdm_manager.core.complements.complementRelationship.impl.complements.ComplementsRelationshipHasTypeImpl;
-import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsRelationship;
+import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsGenericRelationship;
 
 public class ComplementsRelationshipFactoryImpl extends EFactoryImpl implements ComplementsRelationshipFactory {
 
@@ -29,144 +29,144 @@ public class ComplementsRelationshipFactoryImpl extends EFactoryImpl implements 
 	}
 
 	@Override
-	public ComplementsRelationship createInstanceOfComplements() {
+	public ComplementsGenericRelationship createInstanceOfComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createParameterToComplements() {
+	public ComplementsGenericRelationship createParameterToComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createImplementsComplements() {
+	public ComplementsGenericRelationship createImplementsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createImplementationOfComplements() {
+	public ComplementsGenericRelationship createImplementationOfComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createHasTypeComplements() {
+	public ComplementsGenericRelationship createHasTypeComplements() {
 		return new ComplementsRelationshipHasTypeImpl();
 	}
 
 	@Override
-	public ComplementsRelationship createHasValueComplements() {
+	public ComplementsGenericRelationship createHasValueComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createExtendsComplements() {
+	public ComplementsGenericRelationship createExtendsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createGeneratedFromComplements() {
+	public ComplementsGenericRelationship createGeneratedFromComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createIncludesComplements() {
+	public ComplementsGenericRelationship createIncludesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createVariantToComplements() {
+	public ComplementsGenericRelationship createVariantToComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createRedefinesComplements() {
+	public ComplementsGenericRelationship createRedefinesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createVisibleInComplements() {
+	public ComplementsGenericRelationship createVisibleInComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createImportsComplements() {
+	public ComplementsGenericRelationship createImportsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createControlFlowComplements() {
+	public ComplementsGenericRelationship createControlFlowComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createEntryFlowComplements() {
+	public ComplementsGenericRelationship createEntryFlowComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createCallsComplements() {
+	public ComplementsGenericRelationship createCallsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createDispatchesComplements() {
+	public ComplementsGenericRelationship createDispatchesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createReadsComplements() {
+	public ComplementsGenericRelationship createReadsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createWritesComplements() {
+	public ComplementsGenericRelationship createWritesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createAddressesComplements() {
+	public ComplementsGenericRelationship createAddressesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createCreatesComplements() {
+	public ComplementsGenericRelationship createCreatesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createExitFlowComplements() {
+	public ComplementsGenericRelationship createExitFlowComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createThrowsComplements() {
+	public ComplementsGenericRelationship createThrowsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsRelationship createUsesTypeComplements() {
+	public ComplementsGenericRelationship createUsesTypeComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}

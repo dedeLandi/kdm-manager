@@ -2,7 +2,7 @@ package br.ufscar.kdm_manager.core.complements.complementRelationship.factory;
 
 import org.eclipse.emf.ecore.EFactory;
 
-import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsRelationship;
+import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsGenericRelationship;
 
 
 public interface ComplementsRelationshipFactory extends EFactory {
@@ -10,54 +10,54 @@ public interface ComplementsRelationshipFactory extends EFactory {
 	ComplementsRelationshipFactory eINSTANCE = br.ufscar.kdm_manager.core.complements.complementRelationship.impl.factory.ComplementsRelationshipFactoryImpl.init();
 	
 	//CodeRelations
-	ComplementsRelationship createInstanceOfComplements();
+	ComplementsGenericRelationship createInstanceOfComplements();
 	
-	ComplementsRelationship createParameterToComplements();
+	ComplementsGenericRelationship createParameterToComplements();
 	
-	ComplementsRelationship createImplementsComplements();
+	ComplementsGenericRelationship createImplementsComplements();
 	
-	ComplementsRelationship createImplementationOfComplements();
+	ComplementsGenericRelationship createImplementationOfComplements();
 	
-	ComplementsRelationship createHasTypeComplements();
+	ComplementsGenericRelationship createHasTypeComplements();
 	
-	ComplementsRelationship createHasValueComplements();
+	ComplementsGenericRelationship createHasValueComplements();
 
-	ComplementsRelationship createExtendsComplements();
+	ComplementsGenericRelationship createExtendsComplements();
 	
-	ComplementsRelationship createGeneratedFromComplements();
+	ComplementsGenericRelationship createGeneratedFromComplements();
 	
-	ComplementsRelationship createIncludesComplements();
+	ComplementsGenericRelationship createIncludesComplements();
 	
-	ComplementsRelationship createVariantToComplements();
+	ComplementsGenericRelationship createVariantToComplements();
 	
-	ComplementsRelationship createRedefinesComplements();
+	ComplementsGenericRelationship createRedefinesComplements();
 
-	ComplementsRelationship createVisibleInComplements();
+	ComplementsGenericRelationship createVisibleInComplements();
 	
-	ComplementsRelationship createImportsComplements();
+	ComplementsGenericRelationship createImportsComplements();
 	
 	//ActionRelations
 	
-	ComplementsRelationship createControlFlowComplements();
+	ComplementsGenericRelationship createControlFlowComplements();
 	
-	ComplementsRelationship createEntryFlowComplements();
+	ComplementsGenericRelationship createEntryFlowComplements();
 	
-	ComplementsRelationship createCallsComplements();
+	ComplementsGenericRelationship createCallsComplements();
 	
-	ComplementsRelationship createDispatchesComplements();
+	ComplementsGenericRelationship createDispatchesComplements();
 	
-	ComplementsRelationship createReadsComplements();
+	ComplementsGenericRelationship createReadsComplements();
 	
-	ComplementsRelationship createWritesComplements();
+	ComplementsGenericRelationship createWritesComplements();
 	
-	ComplementsRelationship createAddressesComplements();
+	ComplementsGenericRelationship createAddressesComplements();
 	
-	ComplementsRelationship createCreatesComplements();
+	ComplementsGenericRelationship createCreatesComplements();
 	
-	ComplementsRelationship createExitFlowComplements();
+	ComplementsGenericRelationship createExitFlowComplements();
 	
-	ComplementsRelationship createThrowsComplements();
+	ComplementsGenericRelationship createThrowsComplements();
 	
-	ComplementsRelationship createUsesTypeComplements();
+	ComplementsGenericRelationship createUsesTypeComplements();
 	
 }

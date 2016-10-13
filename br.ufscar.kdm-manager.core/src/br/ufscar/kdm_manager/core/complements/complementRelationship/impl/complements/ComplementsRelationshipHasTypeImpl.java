@@ -19,9 +19,9 @@ import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.TemplateType;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
-import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsRelationship;
+import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsGenericRelationship;
 
-public class ComplementsRelationshipHasTypeImpl implements ComplementsRelationship{
+public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRelationship{
 
 	@Override
 	public ClassUnit complementsRelationOf(ClassUnit classToUpdate) {
