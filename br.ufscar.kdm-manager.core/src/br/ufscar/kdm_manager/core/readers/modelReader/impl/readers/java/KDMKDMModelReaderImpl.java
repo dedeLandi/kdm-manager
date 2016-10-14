@@ -16,33 +16,32 @@ import org.eclipse.gmt.modisco.omg.kdm.source.InventoryModel;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 import org.eclipse.gmt.modisco.omg.kdm.ui.UIModel;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.enums.KDMModelType;
 import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.KDMModelGenericReader;
 
 public class KDMKDMModelReaderImpl implements KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> {
 	
 	private boolean hasNoFilter = true;
-	private boolean hasFilterName = false;
+	private boolean hasFilter = false;
 
-	private String filterName = "";
+	private ValidateFilter<KDMModel, ?> filter = null;
 
 	public KDMKDMModelReaderImpl() {
 		super();
 	}
 
-	public KDMKDMModelReaderImpl(String elementName) {
+	public KDMKDMModelReaderImpl(ValidateFilter<KDMModel, ?> filter) {
 		this.hasNoFilter = false;
-		this.hasFilterName  = true;
-		this.filterName = elementName;
+		this.hasFilter  = true;
+		this.filter = filter;
 	}
 	
 	private boolean validateFilter(KDMModel elementToValidate) {
 		if(this.hasNoFilter){
 			return true;
-		}else if(this.hasFilterName){
-			if(elementToValidate.getName().equalsIgnoreCase(this.filterName)){
-				return true;
-			}
+		}else if(this.hasFilter){
+			return this.filter.validateElement(elementToValidate);
 		}
 		return false;
 	}	

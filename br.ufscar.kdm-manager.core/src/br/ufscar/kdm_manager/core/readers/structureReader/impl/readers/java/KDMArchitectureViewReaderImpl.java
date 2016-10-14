@@ -13,33 +13,32 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.SoftwareSystem;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Subsystem;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.structureReader.interfaces.KDMStructureGenericReader;
 
 public class KDMArchitectureViewReaderImpl implements KDMStructureGenericReader<ArchitectureView>{
 
 	private boolean hasNoFilter = true;
-	private boolean hasFilterName = false;
+	private boolean hasFilter = false;
 
-	private String filterName = "";
+	private ValidateFilter<ArchitectureView, ?> filter = null;
 
 	public KDMArchitectureViewReaderImpl() {
 		super();
 	}
 
-	public KDMArchitectureViewReaderImpl(String elementName) {
+	public KDMArchitectureViewReaderImpl(ValidateFilter<ArchitectureView, ?> elementName) {
 		this.hasNoFilter = false;
-		this.hasFilterName  = true;
-		this.filterName = elementName;
+		this.hasFilter  = true;
+		this.filter = elementName;
 	}
 	
 	private boolean validateFilter(ArchitectureView elementToValidate) {
 		if(this.hasNoFilter){
 			return true;
-		}else if(this.hasFilterName){
-			if(elementToValidate.getName().equalsIgnoreCase(this.filterName)){
-				return true;
-			}
+		}else if(this.hasFilter){
+			return this.filter.validateElement(elementToValidate);
 		}
 		return false;
 	}

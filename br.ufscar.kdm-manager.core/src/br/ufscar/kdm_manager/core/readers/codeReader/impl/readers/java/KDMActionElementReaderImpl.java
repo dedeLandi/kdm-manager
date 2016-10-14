@@ -19,6 +19,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.codeReader.enums.KDMActionElementsType;
 import br.ufscar.kdm_manager.core.readers.codeReader.interfaces.KDMCodeGenericReader;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
@@ -27,9 +28,9 @@ public class KDMActionElementReaderImpl implements KDMCodeGenericReader<ActionEl
 
 	private boolean hasNoFilter = true;
 	private boolean hasFilterType = false;
-	private boolean hasFilterName = false;
+	private boolean hasFilter = false;
 
-	private String filterName = "";
+	private ValidateFilter<ActionElement, ?> filter = null;
 
 	private KDMActionElementsType filterActionElementType = null;
 
@@ -40,18 +41,33 @@ public class KDMActionElementReaderImpl implements KDMCodeGenericReader<ActionEl
 	public KDMActionElementReaderImpl(KDMActionElementsType actionElementType) {
 		this.hasNoFilter = false;
 		this.hasFilterType  = true;
-		this.hasFilterName = false;
-		this.filterName = "";
+		this.hasFilter = false;
+		this.filter = null;
 		this.filterActionElementType = actionElementType;
 	}
-	public KDMActionElementReaderImpl(String actionElementName) {
+	public KDMActionElementReaderImpl(ValidateFilter<ActionElement, ?> filter) {
 		this.hasNoFilter = false;
 		this.hasFilterType  = false;
-		this.hasFilterName  = true;
-		this.filterName = actionElementName;
+		this.hasFilter  = true;
+		this.filter = filter;
 		this.filterActionElementType = null;
 	}
 
+	private boolean validateFilter(ActionElement actionElementToValidate) {
+		if(this.hasNoFilter){
+			return true;
+		}else if(this.hasFilter){
+			return this.filter.validateElement(actionElementToValidate);
+		}else if(this.hasFilterType){
+			if(actionElementToValidate.getName().toString().equalsIgnoreCase(this.filterActionElementType.getName().toString())
+					|| 
+					actionElementToValidate.getKind().equalsIgnoreCase(this.filterActionElementType.getKind())){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public List<ActionElement> getAllFrom(Segment segmentToSearch) {
 		List<ActionElement> actionElementRecovered = new ArrayList<ActionElement>();
@@ -347,20 +363,4 @@ public class KDMActionElementReaderImpl implements KDMCodeGenericReader<ActionEl
 		return actionActionElements;
 	}
 
-	private boolean validateFilter(ActionElement actionElementToValidate) {
-		if(this.hasNoFilter){
-			return true;
-		}else if(this.hasFilterName){
-			if(actionElementToValidate.getName().equalsIgnoreCase(this.filterName)){
-				return true;
-			}
-		}else if(this.hasFilterType){
-			if(actionElementToValidate.getName().toString().equalsIgnoreCase(this.filterActionElementType.getName().toString())
-					|| 
-					actionElementToValidate.getKind().equalsIgnoreCase(this.filterActionElementType.getKind())){
-				return true;
-			}
-		}
-		return false;
-	}
 }

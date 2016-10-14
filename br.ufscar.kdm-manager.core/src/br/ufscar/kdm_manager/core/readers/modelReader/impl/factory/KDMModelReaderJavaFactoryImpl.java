@@ -11,6 +11,7 @@ import org.eclipse.gmt.modisco.omg.kdm.kdm.KDMModel;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.modelReader.impl.readers.java.KDMCodeModelReaderImpl;
 import br.ufscar.kdm_manager.core.readers.modelReader.impl.readers.java.KDMKDMModelReaderImpl;
@@ -95,8 +96,8 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 //	}
 
 	@Override
-	public KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> createKDMModelReaderWithFilter(String nameToSearch) {
-		return new KDMKDMModelReaderImpl(nameToSearch);
+	public KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> createKDMModelReaderWithFilter(ValidateFilter filter) {
+		return new KDMKDMModelReaderImpl(filter);
 	}
 
 //	@Override
@@ -106,8 +107,8 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 //	}
 
 	@Override
-	public KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> createKDMCodeModelReaderWithFilter(String nameToSearch) {
-		return new KDMCodeModelReaderImpl(nameToSearch);
+	public KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> createKDMCodeModelReaderWithFilter(ValidateFilter filter) {
+		return new KDMCodeModelReaderImpl(filter);
 	}
 
 //	@Override
@@ -141,8 +142,8 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 //	}
 
 	@Override
-	public KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> createKDMStructureModelReaderWithFilter(String nameToSearch) {
-		return new KDMStructureModelReaderImpl(nameToSearch);
+	public KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> createKDMStructureModelReaderWithFilter(ValidateFilter filter) {
+		return new KDMStructureModelReaderImpl(filter);
 	}
 
 //	@Override

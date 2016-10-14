@@ -18,6 +18,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.codeReader.interfaces.KDMCodeGenericReader;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
 
@@ -25,27 +26,25 @@ import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJava
 public class KDMPackageReaderImpl implements KDMCodeGenericReader<Package> {
 
 	private boolean hasNoFilter = true;
-	private boolean hasFilterName = false;
+	private boolean hasFilter = false;
 
-	private String filterName = "";
+	private ValidateFilter<Package, ?> filter = null;
 
 	public KDMPackageReaderImpl() {
 		super();
 	}
 
-	public KDMPackageReaderImpl(String elementName) {
+	public KDMPackageReaderImpl(ValidateFilter<Package, ?> filter) {
 		this.hasNoFilter = false;
-		this.hasFilterName  = true;
-		this.filterName = elementName;
+		this.hasFilter  = true;
+		this.filter = filter;
 	}
 	
 	private boolean validateFilter(Package elementToValidate) {
 		if(this.hasNoFilter){
 			return true;
-		}else if(this.hasFilterName){
-			if(elementToValidate.getName().equalsIgnoreCase(this.filterName)){
-				return true;
-			}
+		}else if(this.hasFilter){
+			return this.filter.validateElement(elementToValidate);
 		}
 		return false;
 	}	

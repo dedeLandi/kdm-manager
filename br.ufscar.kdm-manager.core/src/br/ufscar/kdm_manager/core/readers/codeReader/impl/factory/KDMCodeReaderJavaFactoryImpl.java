@@ -14,6 +14,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.ParameterUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.codeReader.enums.KDMActionElementsType;
 import br.ufscar.kdm_manager.core.readers.codeReader.factory.KDMCodeReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMActionElementReaderImpl;
@@ -54,8 +55,8 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	}
 
 	@Override
-	public KDMCodeGenericReader<Package> createKDMPackageReaderWithFilter(String nameToSearch) {
-		return new KDMPackageReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<Package> createKDMPackageReaderWithFilter(ValidateFilter filter) {
+		return new KDMPackageReaderImpl(filter);
 	}
 	
 	@Override
@@ -64,8 +65,8 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	}
 
 	@Override
-	public KDMCodeGenericReader<ClassUnit> createKDMClassReaderWithFilter(String nameToSearch) {
-		return new KDMClassReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<ClassUnit> createKDMClassReaderWithFilter(ValidateFilter filter) {
+		return new KDMClassReaderImpl(filter);
 	}
 	
 	@Override
@@ -74,8 +75,8 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	}
 
 	@Override
-	public KDMCodeGenericReader<InterfaceUnit> createKDMInterfaceReaderWithFilter(String nameToSearch) {
-		return new KDMInterfaceReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<InterfaceUnit> createKDMInterfaceReaderWithFilter(ValidateFilter filter) {
+		return new KDMInterfaceReaderImpl(filter);
 	}
 	
 	@Override
@@ -84,8 +85,8 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	}
 
 	@Override
-	public KDMCodeGenericReader<EnumeratedType> createKDMEnumeratedTypeReaderWithFilter(String nameToSearch) {
-		return new KDMEnumeratedTypeReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<EnumeratedType> createKDMEnumeratedTypeReaderWithFilter(ValidateFilter filter) {
+		return new KDMEnumeratedTypeReaderImpl(filter);
 	}
 	
 	@Override
@@ -94,8 +95,8 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	}
 
 	@Override
-	public KDMCodeGenericReader<StorableUnit> createKDMStorableReaderWithFilter(String nameToSearch) {
-		return new KDMStorableReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<StorableUnit> createKDMStorableReaderWithFilter(ValidateFilter filter) {
+		return new KDMStorableReaderImpl(filter);
 	}
 
 	@Override
@@ -104,8 +105,8 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	}
 
 	@Override
-	public KDMCodeGenericReader<ActionElement> createKDMActionReaderWithFilter(String nameToSearch) {
-		return new KDMActionElementReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<ActionElement> createKDMActionReaderWithFilter(ValidateFilter filter) {
+		return new KDMActionElementReaderImpl(filter);
 	}
 
 	@Override
@@ -119,8 +120,8 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	}
 
 	@Override
-	public KDMCodeGenericReader<MethodUnit> createKDMMethodReaderWithFilter(String nameToSearch) {
-		return new KDMMethodReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<MethodUnit> createKDMMethodReaderWithFilter(ValidateFilter filter) {
+		return new KDMMethodReaderImpl(filter);
 	}
 
 	@Override
@@ -139,18 +140,18 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	}
 
 	@Override
-	public KDMCodeGenericReader<BlockUnit> createKDMBlockReaderWithFilter(String nameToSearch) {
-		return new KDMBlockReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<BlockUnit> createKDMBlockReaderWithFilter(ValidateFilter filter) {
+		return new KDMBlockReaderImpl(filter);
 	}
 
 	@Override
-	public KDMCodeGenericReader<Signature> createKDMSignatureReaderWithFilter(String nameToSearch) {
-		return new KDMSignatureReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<Signature> createKDMSignatureReaderWithFilter(ValidateFilter filter) {
+		return new KDMSignatureReaderImpl(filter);
 	}
 
 	@Override
-	public KDMCodeGenericReader<ParameterUnit> createKDMParameterReaderWithFilter(String nameToSearch) {
-		return new KDMParameterReaderImpl(nameToSearch);
+	public KDMCodeGenericReader<ParameterUnit> createKDMParameterReaderWithFilter(ValidateFilter filter) {
+		return new KDMParameterReaderImpl(filter);
 	}
 
 }

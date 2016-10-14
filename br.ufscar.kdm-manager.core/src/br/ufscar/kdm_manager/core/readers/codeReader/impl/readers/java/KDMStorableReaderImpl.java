@@ -19,36 +19,36 @@ import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.codeReader.interfaces.KDMCodeGenericReader;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
 
 public class KDMStorableReaderImpl implements KDMCodeGenericReader<StorableUnit>{
 
 	private boolean hasNoFilter = true;
-	private boolean hasFilterName = false;
+	private boolean hasFilter = false;
 
-	private String filterName = "";
+	private ValidateFilter<StorableUnit,?> filter = null;
 
 	public KDMStorableReaderImpl() {
 		super();
 	}
 
-	public KDMStorableReaderImpl(String elementName) {
+	public KDMStorableReaderImpl(ValidateFilter<StorableUnit,?> filter) {
 		this.hasNoFilter = false;
-		this.hasFilterName  = true;
-		this.filterName = elementName;
+		this.hasFilter  = true;
+		this.filter = filter;
 	}
 
 	private boolean validateFilter(StorableUnit elementToValidate) {
 		if(this.hasNoFilter){
 			return true;
-		}else if(this.hasFilterName){
-			if(elementToValidate.getName().equalsIgnoreCase(this.filterName)){
-				return true;
-			}
+		}else if(this.hasFilter){
+			return this.filter.validateElement(elementToValidate);
 		}
 		return false;
 	}	
+	
 	@Override
 	public List<StorableUnit> getAllFrom(Segment segmentToSearch) {
 

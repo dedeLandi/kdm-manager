@@ -9,6 +9,7 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.Layer;
 import org.eclipse.gmt.modisco.omg.kdm.structure.SoftwareSystem;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Subsystem;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.structureReader.factory.KDMStructureReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.structureReader.impl.readers.java.KDMArchitectureViewReaderImpl;
 import br.ufscar.kdm_manager.core.readers.structureReader.impl.readers.java.KDMComponentReaderImpl;
@@ -62,28 +63,28 @@ public class KDMStructureReaderJavaFactoryImpl extends EFactoryImpl implements K
 	}
 
 	@Override
-	public KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(String nameElement) {
-		return new KDMLayerReaderImpl(nameElement);
+	public KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(ValidateFilter filter) {
+		return new KDMLayerReaderImpl(filter);
 	}
 
 	@Override
-	public KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(String nameElement) {
-		return new KDMComponentReaderImpl(nameElement);
+	public KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(ValidateFilter filter) {
+		return new KDMComponentReaderImpl(filter);
 	}
 
 	@Override
-	public KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(String nameElement) {
-		return new KDMSubsystemReaderImpl(nameElement);
+	public KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(ValidateFilter filter) {
+		return new KDMSubsystemReaderImpl(filter);
 	}
 
 	@Override
-	public KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(String nameElement) {
-		return new KDMArchitectureViewReaderImpl(nameElement);
+	public KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(ValidateFilter filter) {
+		return new KDMArchitectureViewReaderImpl(filter);
 	}
 
 	@Override
-	public KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(String nameElement) {
-		return new KDMSoftwareSystemReaderImpl(nameElement);
+	public KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(ValidateFilter filter) {
+		return new KDMSoftwareSystemReaderImpl(filter);
 	}
 
 }

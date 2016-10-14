@@ -7,6 +7,7 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.Layer;
 import org.eclipse.gmt.modisco.omg.kdm.structure.SoftwareSystem;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Subsystem;
 
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.structureReader.interfaces.KDMStructureGenericReader;
 
 
@@ -24,14 +25,14 @@ public interface KDMStructureReaderJavaFactory extends EFactory {
 	
 	KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReader();
 	
-	KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(String nameElement);
+	KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(ValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(String nameElement);
+	KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(ValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(String nameElement);
+	KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(ValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(String nameElement);
+	KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(ValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(String nameElement);
+	KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(ValidateFilter<?, ?> filter);
 	
 }
