@@ -22,7 +22,7 @@ public class KDMStructureModelReaderImpl implements KDMModelGenericReader<Map<St
 	}
 
 	public KDMStructureModelReaderImpl(String elementName) {
-		this.hasNoFilter = false;
+		this.hasNoFilter = true;
 		this.hasFilterName  = true;
 		this.filterName = elementName;
 	}

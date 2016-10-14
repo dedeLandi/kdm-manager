@@ -18,7 +18,7 @@ import br.ufscar.kdm_manager.core.readers.structureReader.interfaces.KDMStructur
 
 public class KDMArchitectureViewReaderImpl implements KDMStructureGenericReader<ArchitectureView>{
 
-	private boolean hasNoFilter = false;
+	private boolean hasNoFilter = true;
 	private boolean hasFilterName = false;
 
 	private String filterName = "";

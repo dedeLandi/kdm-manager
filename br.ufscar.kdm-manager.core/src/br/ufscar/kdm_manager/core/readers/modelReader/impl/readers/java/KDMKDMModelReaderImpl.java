@@ -21,7 +21,7 @@ import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.KDMModelGeneric
 
 public class KDMKDMModelReaderImpl implements KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> {
 	
-	private boolean hasNoFilter = false;
+	private boolean hasNoFilter = true;
 	private boolean hasFilterName = false;
 
 	private String filterName = "";

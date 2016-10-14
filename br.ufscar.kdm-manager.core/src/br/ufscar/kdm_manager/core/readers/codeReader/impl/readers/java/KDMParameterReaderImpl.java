@@ -25,7 +25,7 @@ import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJava
 
 public class KDMParameterReaderImpl implements KDMCodeGenericReader<ParameterUnit> {
 
-	private boolean hasNoFilter = false;
+	private boolean hasNoFilter = true;
 	private boolean hasFilterName = false;
 
 	private String filterName = "";

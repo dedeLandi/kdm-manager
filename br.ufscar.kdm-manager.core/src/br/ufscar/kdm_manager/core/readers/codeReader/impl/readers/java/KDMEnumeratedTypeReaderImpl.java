@@ -24,7 +24,7 @@ import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJava
 
 public class KDMEnumeratedTypeReaderImpl implements KDMCodeGenericReader<EnumeratedType>{
 	
-	private boolean hasNoFilter = false;
+	private boolean hasNoFilter = true;
 	private boolean hasFilterName = false;
 
 	private String filterName = "";

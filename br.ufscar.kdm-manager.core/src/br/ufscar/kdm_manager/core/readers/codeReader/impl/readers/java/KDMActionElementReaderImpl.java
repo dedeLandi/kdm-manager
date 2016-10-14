@@ -25,7 +25,7 @@ import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJava
 
 public class KDMActionElementReaderImpl implements KDMCodeGenericReader<ActionElement>{
 
-	private boolean hasNoFilter = false;
+	private boolean hasNoFilter = true;
 	private boolean hasFilterType = false;
 	private boolean hasFilterName = false;
 

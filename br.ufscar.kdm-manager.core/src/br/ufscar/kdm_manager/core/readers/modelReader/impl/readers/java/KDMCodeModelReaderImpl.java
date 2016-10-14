@@ -12,7 +12,7 @@ import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.KDMModelGeneric
 
 public class KDMCodeModelReaderImpl implements KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> {
 	
-	private boolean hasNoFilter = false;
+	private boolean hasNoFilter = true;
 	private boolean hasFilterName = false;
 
 	private String filterName = "";
