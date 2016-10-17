@@ -13,7 +13,7 @@ import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.KDMModelGeneric
 
 public class KDMStructureModelReaderImpl implements KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> {
 	
-	private boolean hasNoFilter = false;
+	private boolean hasNoFilter = true;
 	private boolean hasFilter = false;
 
 	private ValidateFilter<StructureModel, ?> filter = null;
