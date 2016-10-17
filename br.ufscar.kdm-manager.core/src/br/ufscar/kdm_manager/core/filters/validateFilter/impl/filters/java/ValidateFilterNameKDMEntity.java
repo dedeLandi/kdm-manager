@@ -18,32 +18,26 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.exceptions;
+package br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java;
 
-public class KDMModelTypeException extends Exception{
+import org.eclipse.gmt.modisco.omg.kdm.core.KDMEntity;
 
-	private static final long serialVersionUID = 1L;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 
-	public KDMModelTypeException(){
-		
-		super("KDM Model passed is wrong for this type operation. ");
-		
-	}
+public class ValidateFilterNameKDMEntity implements ValidateFilter<KDMEntity, String> {
 
-	public KDMModelTypeException(String message){
-		super(message);
-	}
-
-	public KDMModelTypeException(Throwable cause){
-		super(cause);
-	}
-
-	public KDMModelTypeException(String message, Throwable cause){
-		super(message, cause);
-	}
-
-	public KDMModelTypeException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace){
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
+	private String value;
 	
+	@Override
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	@Override
+	public boolean validateElement(KDMEntity elementToValidate) {
+		return elementToValidate.getName().equalsIgnoreCase(this.value);
+	}
+
+	
+
 }
