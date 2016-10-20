@@ -21,6 +21,7 @@
 package br.ufscar.kdm_manager.core.readers.structureReader.factory;
 
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.gmt.modisco.omg.kdm.core.AggregatedRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.structure.ArchitectureView;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Component;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Layer;
@@ -45,6 +46,8 @@ public interface KDMStructureReaderJavaFactory extends EFactory {
 	
 	KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReader();
 	
+	KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReader();
+	
 	KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(ValidateFilter<?, ?> filter);
 	
 	KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(ValidateFilter<?, ?> filter);
@@ -55,4 +58,5 @@ public interface KDMStructureReaderJavaFactory extends EFactory {
 	
 	KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(ValidateFilter<?, ?> filter);
 	
+	KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReaderWithFilter(ValidateFilter<?, ?> filter);
 }
