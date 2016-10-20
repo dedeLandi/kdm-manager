@@ -23,6 +23,7 @@ package br.ufscar.kdm_manager.core.readers.structureReader.impl.factory;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.gmt.modisco.omg.kdm.core.AggregatedRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.structure.ArchitectureView;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Component;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Layer;
@@ -31,6 +32,7 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.Subsystem;
 
 import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 import br.ufscar.kdm_manager.core.readers.structureReader.factory.KDMStructureReaderJavaFactory;
+import br.ufscar.kdm_manager.core.readers.structureReader.impl.readers.java.KDMAggregatedRelationshipReaderImpl;
 import br.ufscar.kdm_manager.core.readers.structureReader.impl.readers.java.KDMArchitectureViewReaderImpl;
 import br.ufscar.kdm_manager.core.readers.structureReader.impl.readers.java.KDMComponentReaderImpl;
 import br.ufscar.kdm_manager.core.readers.structureReader.impl.readers.java.KDMLayerReaderImpl;
@@ -81,6 +83,11 @@ public class KDMStructureReaderJavaFactoryImpl extends EFactoryImpl implements K
 	public KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReader() {
 		return new KDMSoftwareSystemReaderImpl();
 	}
+	
+	@Override
+	public KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReader() {
+		return new KDMAggregatedRelationshipReaderImpl();
+	}
 
 	@Override
 	public KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(ValidateFilter filter) {
@@ -101,10 +108,15 @@ public class KDMStructureReaderJavaFactoryImpl extends EFactoryImpl implements K
 	public KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(ValidateFilter filter) {
 		return new KDMArchitectureViewReaderImpl(filter);
 	}
-
+	
 	@Override
 	public KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(ValidateFilter filter) {
 		return new KDMSoftwareSystemReaderImpl(filter);
+	}
+
+	@Override
+	public KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReaderWithFilter(ValidateFilter filter) {
+		return new KDMAggregatedRelationshipReaderImpl(filter);
 	}
 
 }
