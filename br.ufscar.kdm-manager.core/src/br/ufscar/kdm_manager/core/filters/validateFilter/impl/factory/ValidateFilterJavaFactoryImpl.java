@@ -22,10 +22,14 @@ package br.ufscar.kdm_manager.core.filters.validateFilter.impl.factory;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.gmt.modisco.omg.kdm.core.KDMEntity;
 
 import br.ufscar.kdm_manager.core.filters.validateFilter.factory.ValidateFilterJavaFactory;
+import br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java.ValidateFilterFromAggregated;
 import br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java.ValidateFilterNameKDMEntity;
 import br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java.ValidateFilterNameKDMFramework;
+import br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java.ValidateFilterToAggregated;
+import br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java.ValidateFilterToFromAggregated;
 import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
 
 public class ValidateFilterJavaFactoryImpl implements ValidateFilterJavaFactory {
@@ -58,6 +62,39 @@ public class ValidateFilterJavaFactoryImpl implements ValidateFilterJavaFactory 
 	public ValidateFilter<?, String> createValidateFilterNameOfKDMFramework(String nameToSearch) {
 		ValidateFilter<?, String> filter = new ValidateFilterNameKDMFramework();
 		filter.setValue(nameToSearch);
+		return filter;
+	}
+
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.filters.validateFilter.factory.ValidateFilterJavaFactory#createValidateFilterAggregatedRelationshipToOfKDMEntity(org.eclipse.gmt.modisco.omg.kdm.core.KDMEntity)
+	 */
+	@Override
+	public ValidateFilter<?, KDMEntity> createValidateFilterAggregatedRelationshipToOfKDMEntity(
+			KDMEntity elementToAvaliate) {
+		ValidateFilter<?, KDMEntity> filter = new ValidateFilterToAggregated();
+		filter.setValue(elementToAvaliate);
+		return filter;
+	}
+
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.filters.validateFilter.factory.ValidateFilterJavaFactory#createValidateFilterAggregatedRelationshipFromOfKDMEntity(org.eclipse.gmt.modisco.omg.kdm.core.KDMEntity)
+	 */
+	@Override
+	public ValidateFilter<?, KDMEntity> createValidateFilterAggregatedRelationshipFromOfKDMEntity(
+			KDMEntity elementToAvaliate) {
+		ValidateFilter<?, KDMEntity> filter = new ValidateFilterFromAggregated();
+		filter.setValue(elementToAvaliate);
+		return filter;
+	}
+
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.filters.validateFilter.factory.ValidateFilterJavaFactory#createValidateFilterAggregatedRelationshipToFromOfKDMEntity(org.eclipse.gmt.modisco.omg.kdm.core.KDMEntity[])
+	 */
+	@Override
+	public ValidateFilter<?, KDMEntity[]> createValidateFilterAggregatedRelationshipToFromOfKDMEntity(
+			KDMEntity[] elementToAvaliate) {
+		ValidateFilter<?, KDMEntity[]> filter = new ValidateFilterToFromAggregated();
+		filter.setValue(elementToAvaliate);
 		return filter;
 	}
 
