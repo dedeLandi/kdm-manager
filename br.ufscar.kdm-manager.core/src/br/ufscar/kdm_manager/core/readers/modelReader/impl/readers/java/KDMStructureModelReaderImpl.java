@@ -69,7 +69,7 @@ public class KDMStructureModelReaderImpl implements KDMModelGenericReader<Map<St
 
 				if(validateFilter((StructureModel)kdmModel)){
 					models.put(kdmModel.getName(), new ArrayList<StructureModel>());
-					
+					//TODO Corrigir a criação da lista aqui
 					models.get(kdmModel.getName()).add((StructureModel)kdmModel);
 				}
 				
