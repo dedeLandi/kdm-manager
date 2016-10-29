@@ -27,4 +27,6 @@ Export-Package: br.ufscar.kdm_manager.core.exceptions,
  br.ufscar.kdm_manager.core.readers.modelReader.factory,
  br.ufscar.kdm_manager.core.readers.modelReader.interfaces,
  br.ufscar.kdm_manager.core.readers.structureReader.factory,
- br.ufscar.kdm_manager.core.readers.structureReader.interfaces
+ br.ufscar.kdm_manager.core.readers.structureReader.interfaces,
+ br.ufscar.kdm_manager.core.recovers.recoverHierarchy.factory,
+ br.ufscar.kdm_manager.core.recovers.recoverHierarchy.interfaces
