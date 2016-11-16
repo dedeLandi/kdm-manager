@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.gmt.modisco.omg.kdm.action.AbstractActionRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
 import org.eclipse.gmt.modisco.omg.kdm.action.Calls;
@@ -209,6 +210,21 @@ public class KDMRelationshipReaderCallsImpl implements KDMRelationshipGenericRea
 
 		List<Calls> callsRecovered = new ArrayList<Calls>();
 
+		for (AbstractCodeRelationship abstractCodeRelationship : blockToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof Calls){
+				callsRecovered.add((Calls) abstractCodeRelationship);
+			}
+			
+		}
+		for (AbstractActionRelationship abstractActionRelationship : blockToAvaliate.getActionRelation()) {
+
+			if(abstractActionRelationship instanceof Calls){
+				callsRecovered.add((Calls) abstractActionRelationship);
+			}
+
+		}
+		
 		for (AbstractCodeElement abstractCodeElement : blockToAvaliate.getCodeElement()) {
 
 			if(abstractCodeElement instanceof ActionElement){
@@ -232,9 +248,16 @@ public class KDMRelationshipReaderCallsImpl implements KDMRelationshipGenericRea
 		List<Calls> callsRecovered = new ArrayList<Calls>();
 
 		for (AbstractCodeRelationship abstractCodeRelationship : actionElementToAvaliate.getCodeRelation()) {
-
+			
 			if(abstractCodeRelationship instanceof Calls){
 				callsRecovered.add((Calls) abstractCodeRelationship);
+			}
+			
+		}
+		for (AbstractActionRelationship abstractActionRelationship : actionElementToAvaliate.getActionRelation()) {
+
+			if(abstractActionRelationship instanceof Calls){
+				callsRecovered.add((Calls) abstractActionRelationship);
 			}
 
 		}
