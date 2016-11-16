@@ -88,6 +88,14 @@ public class KDMRelationshipReaderImplementsImpl implements KDMRelationshipGener
 		
 		List<Implements> implementsRecovered = new ArrayList<Implements>();
 		
+		for (AbstractCodeRelationship abstractCodeRelationship : packageToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof Implements){
+				implementsRecovered.add((Implements) abstractCodeRelationship);
+			}
+			
+		}
+		
 		for (AbstractCodeElement abstractCodeElement : packageToAvaliate.getCodeElement()) {
 			
 			if(abstractCodeElement instanceof InterfaceUnit){
