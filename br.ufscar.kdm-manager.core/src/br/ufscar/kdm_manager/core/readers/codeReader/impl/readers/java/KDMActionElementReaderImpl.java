@@ -26,6 +26,8 @@ import java.util.Map;
 
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeElement;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.CodeItem;
@@ -348,6 +350,14 @@ public class KDMActionElementReaderImpl implements KDMCodeGenericReader<ActionEl
 					blockActionElements.add((ActionElement) abstractCodeElement);
 				}
 				blockActionElements.addAll(this.getAllActionElementsFrom((ActionElement)abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof TryUnit ){
+				
+				blockActionElements.addAll(this.getAllActionElementsFrom((TryUnit)abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof CatchUnit ){
+				
+				blockActionElements.addAll(this.getAllActionElementsFrom((CatchUnit)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof BlockUnit ){
 
@@ -371,13 +381,20 @@ public class KDMActionElementReaderImpl implements KDMCodeGenericReader<ActionEl
 					actionActionElements.add((ActionElement) abstractCodeElement);
 				}
 				actionActionElements.addAll(this.getAllActionElementsFrom((ActionElement)abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof TryUnit ){
+				
+				actionActionElements.addAll(this.getAllActionElementsFrom((TryUnit)abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof CatchUnit ){
+				
+				actionActionElements.addAll(this.getAllActionElementsFrom((CatchUnit)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof BlockUnit ){
 
 				actionActionElements.addAll(this.getAllActionElementsFrom((BlockUnit)abstractCodeElement));
 
 			}
-
 		}
 
 		return actionActionElements;
