@@ -27,7 +27,9 @@ import java.util.Map;
 import org.eclipse.gmt.modisco.omg.kdm.action.AbstractActionRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
 import org.eclipse.gmt.modisco.omg.kdm.action.Reads;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeElement;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
@@ -231,6 +233,14 @@ public class KDMRelationshipReaderReadsImpl implements KDMRelationshipGenericRea
 
 				readsRecovered.addAll(this.getAllRelationshipOf((ActionElement) abstractCodeElement));
 
+			}else if(abstractCodeElement instanceof TryUnit){
+				
+				readsRecovered.addAll(this.getAllRelationshipOf((TryUnit) abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof CatchUnit){
+				
+				readsRecovered.addAll(this.getAllRelationshipOf((CatchUnit) abstractCodeElement));
+				
 			}else if(abstractCodeElement instanceof BlockUnit){
 
 				readsRecovered.addAll(this.getAllRelationshipOf((BlockUnit) abstractCodeElement));
@@ -268,6 +278,14 @@ public class KDMRelationshipReaderReadsImpl implements KDMRelationshipGenericRea
 
 				readsRecovered.addAll(this.getAllRelationshipOf((ActionElement) abstractCodeElement));
 
+			}else if(abstractCodeElement instanceof TryUnit){
+				
+				readsRecovered.addAll(this.getAllRelationshipOf((TryUnit) abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof CatchUnit){
+				
+				readsRecovered.addAll(this.getAllRelationshipOf((CatchUnit) abstractCodeElement));
+				
 			}else if(abstractCodeElement instanceof BlockUnit){
 
 				readsRecovered.addAll(this.getAllRelationshipOf((BlockUnit) abstractCodeElement));
