@@ -26,6 +26,8 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.EnumeratedType;
 import org.eclipse.gmt.modisco.omg.kdm.code.InterfaceUnit;
@@ -180,6 +182,10 @@ public class RecoverHierarchyFirstArchitecturalElementImpl implements RecoverGen
 			value = this.getHierarchyOf((EnumeratedType) storableToAvaliate.eContainer());
 		}else if(storableToAvaliate.eContainer() instanceof BlockUnit){
 			value = this.getHierarchyOf((BlockUnit) storableToAvaliate.eContainer());
+		}else if(storableToAvaliate.eContainer() instanceof TryUnit){
+			value = this.getHierarchyOf((TryUnit) storableToAvaliate.eContainer());
+		}else if(storableToAvaliate.eContainer() instanceof CatchUnit){
+			value = this.getHierarchyOf((CatchUnit) storableToAvaliate.eContainer());
 		}else if(storableToAvaliate.eContainer() instanceof ActionElement){
 			value = this.getHierarchyOf((ActionElement) storableToAvaliate.eContainer());
 		}
@@ -226,6 +232,12 @@ public class RecoverHierarchyFirstArchitecturalElementImpl implements RecoverGen
 		AbstractStructureElement value = null;
 		if(blockToAvaliate.eContainer() instanceof MethodUnit){
 			value = this.getHierarchyOf((MethodUnit) blockToAvaliate.eContainer());
+		}else if(blockToAvaliate.eContainer() instanceof TryUnit){
+			value = this.getHierarchyOf((TryUnit) blockToAvaliate.eContainer());
+		}else if(blockToAvaliate.eContainer() instanceof CatchUnit){
+			value = this.getHierarchyOf((CatchUnit) blockToAvaliate.eContainer());
+		}else if(blockToAvaliate.eContainer() instanceof BlockUnit){
+			value = this.getHierarchyOf((BlockUnit) blockToAvaliate.eContainer());
 		}else if(blockToAvaliate.eContainer() instanceof ActionElement){
 			value = this.getHierarchyOf((ActionElement) blockToAvaliate.eContainer());
 		}
@@ -238,6 +250,10 @@ public class RecoverHierarchyFirstArchitecturalElementImpl implements RecoverGen
 		AbstractStructureElement value = null;
 		if(actionElementToAvaliate.eContainer() instanceof BlockUnit){
 			value = this.getHierarchyOf((BlockUnit) actionElementToAvaliate.eContainer());
+		}else if(actionElementToAvaliate.eContainer() instanceof TryUnit){
+			value = this.getHierarchyOf((TryUnit) actionElementToAvaliate.eContainer());
+		}else if(actionElementToAvaliate.eContainer() instanceof CatchUnit){
+			value = this.getHierarchyOf((CatchUnit) actionElementToAvaliate.eContainer());
 		}else if(actionElementToAvaliate.eContainer() instanceof ActionElement){
 			value = this.getHierarchyOf((ActionElement) actionElementToAvaliate.eContainer());
 		}
