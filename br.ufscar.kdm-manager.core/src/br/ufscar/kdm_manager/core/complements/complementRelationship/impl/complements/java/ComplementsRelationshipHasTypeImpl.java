@@ -22,7 +22,8 @@ package br.ufscar.kdm_manager.core.complements.complementRelationship.impl.compl
 
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
-import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeRelationship;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.CodeFactory;
 import org.eclipse.gmt.modisco.omg.kdm.code.CodeModel;
@@ -32,11 +33,9 @@ import org.eclipse.gmt.modisco.omg.kdm.code.HasType;
 import org.eclipse.gmt.modisco.omg.kdm.code.InterfaceUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.MethodUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.Package;
-import org.eclipse.gmt.modisco.omg.kdm.code.ParameterTo;
 import org.eclipse.gmt.modisco.omg.kdm.code.ParameterUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
-import org.eclipse.gmt.modisco.omg.kdm.code.TemplateType;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
 import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsGenericRelationship;
@@ -56,8 +55,19 @@ public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRel
 				
 				classToUpdate.getCodeElement().set(i, this.complementsRelationOf((MethodUnit)classToUpdate.getCodeElement().get(i)));
 				
+			}else if(classToUpdate.getCodeElement().get(i) instanceof ClassUnit){
+				
+				classToUpdate.getCodeElement().set(i, this.complementsRelationOf((ClassUnit)classToUpdate.getCodeElement().get(i)));
+				
+			}else if(classToUpdate.getCodeElement().get(i) instanceof InterfaceUnit){
+				
+				classToUpdate.getCodeElement().set(i, this.complementsRelationOf((InterfaceUnit)classToUpdate.getCodeElement().get(i)));
+				
+			}else if(classToUpdate.getCodeElement().get(i) instanceof EnumeratedType){
+				
+				classToUpdate.getCodeElement().set(i, this.complementsRelationOf((EnumeratedType)classToUpdate.getCodeElement().get(i)));
+				
 			}
-			
 		}
 		
 		return classToUpdate;
@@ -73,13 +83,18 @@ public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRel
 				packageToUpdate.getCodeElement().set(i, this.complementsRelationOf((ClassUnit)packageToUpdate.getCodeElement().get(i)));
 				
 			}else if(packageToUpdate.getCodeElement().get(i) instanceof InterfaceUnit){
-				packageToUpdate.getCodeElement().set(i, (InterfaceUnit) packageToUpdate.getCodeElement().get(i));
+				
+				packageToUpdate.getCodeElement().set(i, this.complementsRelationOf((InterfaceUnit) packageToUpdate.getCodeElement().get(i)));
+				
+			}else if(packageToUpdate.getCodeElement().get(i) instanceof EnumeratedType){
+				
+				packageToUpdate.getCodeElement().set(i, this.complementsRelationOf((EnumeratedType) packageToUpdate.getCodeElement().get(i)));
+				
 			}else if(packageToUpdate.getCodeElement().get(i) instanceof Package){
 				
 				packageToUpdate.getCodeElement().set(i, this.complementsRelationOf((Package)packageToUpdate.getCodeElement().get(i)));
 				
 			}
-			
 		}
 		
 		return packageToUpdate;
@@ -102,9 +117,15 @@ public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRel
 				
 				blockToUpdate.getCodeElement().set(i, this.complementsRelationOf((BlockUnit) blockToUpdate.getCodeElement().get(i)));
 				
+			}else if(blockToUpdate.getCodeElement().get(i) instanceof TryUnit ){
+				
+				blockToUpdate.getCodeElement().set(i, this.complementsRelationOf((TryUnit) blockToUpdate.getCodeElement().get(i)));
+				
+			}else if(blockToUpdate.getCodeElement().get(i) instanceof CatchUnit ){
+				
+				blockToUpdate.getCodeElement().set(i, this.complementsRelationOf((CatchUnit) blockToUpdate.getCodeElement().get(i)));
+				
 			}
-			
-			
 		}
 		
 		return blockToUpdate;
@@ -127,6 +148,14 @@ public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRel
 				
 				actionElementToUpdate.getCodeElement().set(i, this.complementsRelationOf((BlockUnit) actionElementToUpdate.getCodeElement().get(i)));
 				
+			}else if(actionElementToUpdate.getCodeElement().get(i) instanceof TryUnit ){
+				
+				actionElementToUpdate.getCodeElement().set(i, this.complementsRelationOf((TryUnit) actionElementToUpdate.getCodeElement().get(i)));
+				
+			}else if(actionElementToUpdate.getCodeElement().get(i) instanceof CatchUnit ){
+				
+				actionElementToUpdate.getCodeElement().set(i, this.complementsRelationOf((CatchUnit) actionElementToUpdate.getCodeElement().get(i)));
+				
 			}
 			
 		}
@@ -142,17 +171,6 @@ public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRel
 		hasType.setFrom(storableToUpdate);
 		
 		Datatype dataType = storableToUpdate.getType();
-		
-		if (dataType instanceof TemplateType) {
-			
-			//desce na arvore do TemplateUnit
-			TemplateType auxTemplateUnit = (TemplateType) dataType;
-			for (AbstractCodeRelationship abstractCodeRelationship : auxTemplateUnit.getCodeRelation()) {
-				if(abstractCodeRelationship instanceof ParameterTo){
-					dataType = (Datatype) ( (ParameterTo)abstractCodeRelationship ).getTo();							
-				}
-			}
-		} 
 		
 		hasType.setTo(dataType);
 		
@@ -224,6 +242,18 @@ public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRel
 				
 				interfaceToUpdate.getCodeElement().set(i, this.complementsRelationOf((MethodUnit)interfaceToUpdate.getCodeElement().get(i)));
 				
+			}else if(interfaceToUpdate.getCodeElement().get(i) instanceof ClassUnit){
+				
+				interfaceToUpdate.getCodeElement().set(i, this.complementsRelationOf((ClassUnit)interfaceToUpdate.getCodeElement().get(i)));
+				
+			}else if(interfaceToUpdate.getCodeElement().get(i) instanceof InterfaceUnit){
+				
+				interfaceToUpdate.getCodeElement().set(i, this.complementsRelationOf((InterfaceUnit)interfaceToUpdate.getCodeElement().get(i)));
+				
+			}else if(interfaceToUpdate.getCodeElement().get(i) instanceof EnumeratedType){
+				
+				interfaceToUpdate.getCodeElement().set(i, this.complementsRelationOf((EnumeratedType)interfaceToUpdate.getCodeElement().get(i)));
+				
 			}
 			
 		}
@@ -256,6 +286,14 @@ public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRel
 
 				codeModelToUpdate.getCodeElement().set(i, this.complementsRelationOf((ClassUnit)codeModelToUpdate.getCodeElement().get(i)));
 				
+			}else if(codeModelToUpdate.getCodeElement().get(i) instanceof InterfaceUnit){
+				
+				codeModelToUpdate.getCodeElement().set(i, this.complementsRelationOf((InterfaceUnit)codeModelToUpdate.getCodeElement().get(i)));
+				
+			}else if(codeModelToUpdate.getCodeElement().get(i) instanceof EnumeratedType){
+				
+				codeModelToUpdate.getCodeElement().set(i, this.complementsRelationOf((EnumeratedType)codeModelToUpdate.getCodeElement().get(i)));
+				
 			}else if(codeModelToUpdate.getCodeElement().get(i) instanceof Package){
 				
 				codeModelToUpdate.getCodeElement().set(i, this.complementsRelationOf((Package)codeModelToUpdate.getCodeElement().get(i)));
@@ -279,14 +317,22 @@ public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRel
 				
 				enumeratedTypeToUpdate.getCodeElement().set(i, this.complementsRelationOf((MethodUnit)enumeratedTypeToUpdate.getCodeElement().get(i)));
 				
+			}else if(enumeratedTypeToUpdate.getCodeElement().get(i) instanceof ClassUnit){
+				
+				enumeratedTypeToUpdate.getCodeElement().set(i, this.complementsRelationOf((ClassUnit)enumeratedTypeToUpdate.getCodeElement().get(i)));
+				
+			}else if(enumeratedTypeToUpdate.getCodeElement().get(i) instanceof InterfaceUnit){
+				
+				enumeratedTypeToUpdate.getCodeElement().set(i, this.complementsRelationOf((InterfaceUnit)enumeratedTypeToUpdate.getCodeElement().get(i)));
+				
+			}else if(enumeratedTypeToUpdate.getCodeElement().get(i) instanceof EnumeratedType){
+				
+				enumeratedTypeToUpdate.getCodeElement().set(i, this.complementsRelationOf((EnumeratedType)enumeratedTypeToUpdate.getCodeElement().get(i)));
+				
 			}
-			
 		}
 		
 		return enumeratedTypeToUpdate;
 	}
-
-
-
 
 }
