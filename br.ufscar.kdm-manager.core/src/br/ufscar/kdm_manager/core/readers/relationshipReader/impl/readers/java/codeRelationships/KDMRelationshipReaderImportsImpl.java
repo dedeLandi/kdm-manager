@@ -88,6 +88,14 @@ public class KDMRelationshipReaderImportsImpl implements KDMRelationshipGenericR
 		
 		List<Imports> importsRecovered = new ArrayList<Imports>();
 		
+		for (AbstractCodeRelationship abstractCodeRelationship : packageToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof Imports){
+				importsRecovered.add((Imports) abstractCodeRelationship);
+			}
+			
+		}
+		
 		for (AbstractCodeElement abstractCodeElement : packageToAvaliate.getCodeElement()) {
 			
 			if(abstractCodeElement instanceof InterfaceUnit){
