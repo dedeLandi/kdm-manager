@@ -115,6 +115,7 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 //		return null;
 //	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> createKDMModelReaderWithFilter(ValidateFilter filter) {
 		return new KDMKDMModelReaderImpl(filter);
@@ -126,6 +127,7 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 //		return null;
 //	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> createKDMCodeModelReaderWithFilter(ValidateFilter filter) {
 		return new KDMCodeModelReaderImpl(filter);
@@ -161,6 +163,7 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 //		return null;
 //	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> createKDMStructureModelReaderWithFilter(ValidateFilter filter) {
 		return new KDMStructureModelReaderImpl(filter);
