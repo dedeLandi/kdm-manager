@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License			*
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
-  *******************************************************************************/
+ *******************************************************************************/
 package br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java;
 
 import java.util.ArrayList;
@@ -26,6 +26,8 @@ import java.util.Map;
 
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeElement;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.CodeItem;
@@ -59,7 +61,7 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 		this.hasFilter  = true;
 		this.filter = filter;
 	}
-	
+
 	private boolean validateFilter(BlockUnit elementToValidate) {
 		if(this.hasNoFilter){
 			return true;
@@ -81,7 +83,7 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 				blockUnitRecovered.addAll(this.getAllBlocksFrom(codeModel));
 			}
 		}
-		
+
 		return blockUnitRecovered;
 	}
 
@@ -124,13 +126,13 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 	public List<BlockUnit> getAllFrom(ActionElement actionElementToSearch) {
 		return this.getAllBlocksFrom(actionElementToSearch);
 	}
-	
+
 	@Override
 	@Deprecated
 	public List<BlockUnit> getAllFrom(StorableUnit storableUnitToSearch) {
 		return null;
 	}
-	
+
 	@Override
 	@Deprecated
 	public List<BlockUnit> getAllFrom(Signature signatureUnitToSearch) {
@@ -142,7 +144,7 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 	public List<BlockUnit> getAllFrom(ParameterUnit parameterUnitUnitToSearch) {
 		return null;
 	}
-	
+
 	private List<BlockUnit> getAllBlocksFrom(CodeModel codeModelToSearch) {
 		List<BlockUnit> modelBlocks = new ArrayList<BlockUnit>();
 
@@ -151,13 +153,13 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 			if(abstractCodeElement instanceof ClassUnit){
 
 				modelBlocks.addAll(this.getAllBlocksFrom((ClassUnit)abstractCodeElement));
-				
+
 			}else if(abstractCodeElement instanceof InterfaceUnit){
-				
+
 				modelBlocks.addAll(this.getAllBlocksFrom((InterfaceUnit)abstractCodeElement));
-				
+
 			}else if(abstractCodeElement instanceof EnumeratedType){
-				
+
 				modelBlocks.addAll(this.getAllBlocksFrom((EnumeratedType)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof Package){
@@ -181,11 +183,11 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 				packageBlocks.addAll(this.getAllBlocksFrom((ClassUnit)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof InterfaceUnit){
-				
+
 				packageBlocks.addAll(this.getAllBlocksFrom((InterfaceUnit)abstractCodeElement));
-				
+
 			}else if(abstractCodeElement instanceof EnumeratedType){
-				
+
 				packageBlocks.addAll(this.getAllBlocksFrom((EnumeratedType)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof Package){
@@ -201,60 +203,60 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 
 	private List<BlockUnit> getAllBlocksFrom(ClassUnit classToSearch) {
 		List<BlockUnit> classBlocks = new ArrayList<BlockUnit>();
-		
+
 		for (CodeItem codeItem : classToSearch.getCodeElement()) {
-			
+
 			if(codeItem instanceof ClassUnit){
-				
+
 				classBlocks.addAll(this.getAllBlocksFrom((ClassUnit)codeItem));
-				
+
 			}else if(codeItem instanceof InterfaceUnit){
-				
+
 				classBlocks.addAll(this.getAllBlocksFrom((InterfaceUnit)codeItem));
-				
+
 			}else if(codeItem instanceof EnumeratedType){
-				
+
 				classBlocks.addAll(this.getAllBlocksFrom((EnumeratedType)codeItem));
-				
+
 			}else if (codeItem instanceof MethodUnit){
-				
+
 				classBlocks.addAll(this.getAllBlocksFrom((MethodUnit)codeItem));
-				
+
 			}
-			
+
 		}
-		
+
 		return classBlocks;
 	}
-	
+
 	private List<BlockUnit> getAllBlocksFrom(InterfaceUnit interfaceToSearch) {
 		List<BlockUnit> interfaceBlocks = new ArrayList<BlockUnit>();
-		
+
 		for (CodeItem codeItem : interfaceToSearch.getCodeElement()) {
-			
+
 			if(codeItem instanceof ClassUnit){
-				
+
 				interfaceBlocks.addAll(this.getAllBlocksFrom((ClassUnit)codeItem));
-				
+
 			}else if(codeItem instanceof InterfaceUnit){
-				
+
 				interfaceBlocks.addAll(this.getAllBlocksFrom((InterfaceUnit)codeItem));
-				
+
 			}else if(codeItem instanceof EnumeratedType){
-				
+
 				interfaceBlocks.addAll(this.getAllBlocksFrom((EnumeratedType)codeItem));
-				
+
 			}else if (codeItem instanceof MethodUnit){
-				
+
 				interfaceBlocks.addAll(this.getAllBlocksFrom((MethodUnit)codeItem));
-				
+
 			}
-			
+
 		}
-		
+
 		return interfaceBlocks;
 	}
-	
+
 	private List<BlockUnit> getAllBlocksFrom(EnumeratedType enumeratedTypeToSearch) {
 		List<BlockUnit> enumeratedTypeBlocks = new ArrayList<BlockUnit>();
 
@@ -265,11 +267,11 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 				enumeratedTypeBlocks.addAll(this.getAllBlocksFrom((ClassUnit)codeItem));
 
 			}else if(codeItem instanceof InterfaceUnit){
-				
+
 				enumeratedTypeBlocks.addAll(this.getAllBlocksFrom((InterfaceUnit)codeItem));
-				
+
 			}else if(codeItem instanceof EnumeratedType){
-				
+
 				enumeratedTypeBlocks.addAll(this.getAllBlocksFrom((EnumeratedType)codeItem));
 
 			}else if (codeItem instanceof MethodUnit){
@@ -295,6 +297,14 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 				}
 				methodBlocks.addAll(this.getAllBlocksFrom((BlockUnit) abstractCodeElement));
 
+			}else if(abstractCodeElement instanceof TryUnit){
+
+				methodBlocks.addAll(this.getAllBlocksFrom((TryUnit) abstractCodeElement));
+
+			}else if(abstractCodeElement instanceof CatchUnit){
+
+				methodBlocks.addAll(this.getAllBlocksFrom((CatchUnit) abstractCodeElement));
+
 			}
 		}
 
@@ -310,6 +320,14 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 			if(abstractCodeElement instanceof ActionElement ){
 
 				blockBlocks.addAll(this.getAllBlocksFrom((ActionElement)abstractCodeElement));
+
+			}else if(abstractCodeElement instanceof TryUnit ){
+
+				blockBlocks.addAll(this.getAllBlocksFrom((TryUnit)abstractCodeElement));
+
+			}else if(abstractCodeElement instanceof CatchUnit ){
+
+				blockBlocks.addAll(this.getAllBlocksFrom((CatchUnit)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof BlockUnit ){
 
@@ -333,6 +351,14 @@ public class KDMBlockReaderImpl implements KDMCodeGenericReader<BlockUnit>{
 			if(abstractCodeElement instanceof ActionElement ){
 
 				actionBlocks.addAll(this.getAllBlocksFrom((ActionElement)abstractCodeElement));
+
+			}else if(abstractCodeElement instanceof TryUnit ){
+
+				actionBlocks.addAll(this.getAllBlocksFrom((TryUnit)abstractCodeElement));
+
+			}else if(abstractCodeElement instanceof CatchUnit ){
+
+				actionBlocks.addAll(this.getAllBlocksFrom((CatchUnit)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof BlockUnit ){
 
