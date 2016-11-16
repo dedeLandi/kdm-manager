@@ -20,6 +20,8 @@
   *******************************************************************************/
 package br.ufscar.kdm_manager.core.recovers.recoverHierarchy.factory;
 
+import org.eclipse.gmt.modisco.omg.kdm.structure.AbstractStructureElement;
+
 import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.interfaces.RecoverGenericHierarchy;
 
 public interface RecoverHierarchyJavaFactory {
@@ -34,6 +36,7 @@ public interface RecoverHierarchyJavaFactory {
 	
 	RecoverGenericHierarchy<String> createRecoverHierarchyCompleteArchitectural();
 	
+	RecoverGenericHierarchy<AbstractStructureElement> createRecoverHierarchyFirstArchitecturalElement();
 	
 	
 }

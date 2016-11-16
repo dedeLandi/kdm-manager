@@ -22,9 +22,11 @@ package br.ufscar.kdm_manager.core.recovers.recoverHierarchy.impl.factory;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.gmt.modisco.omg.kdm.structure.AbstractStructureElement;
 
 import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.factory.RecoverHierarchyJavaFactory;
 import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.impl.recovers.java.RecoverHierarchyCompleteImpl;
+import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.impl.recovers.java.RecoverHierarchyFirstArchitecturalElementImpl;
 import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.impl.recovers.java.RecoverHierarchyCompleteArchitecturalImpl;
 import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.impl.recovers.java.RecoverHierarchyUntilFirstEntityImpl;
 import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.impl.recovers.java.RecoverHierarchyUntilFirstPackageImpl;
@@ -67,6 +69,11 @@ public class RecoverHierarchyJavaFactoryImpl implements RecoverHierarchyJavaFact
 	@Override
 	public RecoverGenericHierarchy<String> createRecoverHierarchyCompleteArchitectural() {
 		return new RecoverHierarchyCompleteArchitecturalImpl();
+	}
+
+	@Override
+	public RecoverGenericHierarchy<AbstractStructureElement> createRecoverHierarchyFirstArchitecturalElement() {
+		return new RecoverHierarchyFirstArchitecturalElementImpl();
 	}
 	
 }
