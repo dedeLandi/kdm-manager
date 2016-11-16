@@ -26,6 +26,8 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.EnumeratedType;
 import org.eclipse.gmt.modisco.omg.kdm.code.InterfaceUnit;
@@ -255,6 +257,10 @@ public class RecoverHierarchyCompleteArchitecturalImpl implements RecoverGeneric
 			completePath = completePath.concat(this.getHierarchyOf((EnumeratedType) storableToAvaliate.eContainer()));
 		}else if(storableToAvaliate.eContainer() instanceof BlockUnit){
 			completePath = completePath.concat(this.getHierarchyOf((BlockUnit) storableToAvaliate.eContainer()));
+		}else if(storableToAvaliate.eContainer() instanceof TryUnit){
+			completePath = completePath.concat(this.getHierarchyOf((TryUnit) storableToAvaliate.eContainer()));
+		}else if(storableToAvaliate.eContainer() instanceof CatchUnit){
+			completePath = completePath.concat(this.getHierarchyOf((CatchUnit) storableToAvaliate.eContainer()));
 		}else if(storableToAvaliate.eContainer() instanceof ActionElement){
 			completePath = completePath.concat(this.getHierarchyOf((ActionElement) storableToAvaliate.eContainer()));
 		}
@@ -317,6 +323,12 @@ public class RecoverHierarchyCompleteArchitecturalImpl implements RecoverGeneric
 
 		if(blockToAvaliate.eContainer() instanceof MethodUnit){
 			completePath = completePath.concat(this.getHierarchyOf((MethodUnit) blockToAvaliate.eContainer()));
+		}else if(blockToAvaliate.eContainer() instanceof TryUnit){
+			completePath = completePath.concat(this.getHierarchyOf((TryUnit) blockToAvaliate.eContainer()));
+		}else if(blockToAvaliate.eContainer() instanceof CatchUnit){
+			completePath = completePath.concat(this.getHierarchyOf((CatchUnit) blockToAvaliate.eContainer()));
+		}else if(blockToAvaliate.eContainer() instanceof BlockUnit){
+			completePath = completePath.concat(this.getHierarchyOf((BlockUnit) blockToAvaliate.eContainer()));
 		}else if(blockToAvaliate.eContainer() instanceof ActionElement){
 			completePath = completePath.concat(this.getHierarchyOf((ActionElement) blockToAvaliate.eContainer()));
 		}
@@ -333,6 +345,10 @@ public class RecoverHierarchyCompleteArchitecturalImpl implements RecoverGeneric
 
 		if(actionElementToAvaliate.eContainer() instanceof BlockUnit){
 			completePath = completePath.concat(this.getHierarchyOf((BlockUnit) actionElementToAvaliate.eContainer()));
+		}else if(actionElementToAvaliate.eContainer() instanceof TryUnit){
+			completePath = completePath.concat(this.getHierarchyOf((TryUnit) actionElementToAvaliate.eContainer()));
+		}else if(actionElementToAvaliate.eContainer() instanceof CatchUnit){
+			completePath = completePath.concat(this.getHierarchyOf((CatchUnit) actionElementToAvaliate.eContainer()));
 		}else if(actionElementToAvaliate.eContainer() instanceof ActionElement){
 			completePath = completePath.concat(this.getHierarchyOf((ActionElement) actionElementToAvaliate.eContainer()));
 		}
