@@ -89,31 +89,37 @@ public class KDMStructureReaderJavaFactoryImpl extends EFactoryImpl implements K
 		return new KDMAggregatedRelationshipReaderImpl();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(ValidateFilter filter) {
 		return new KDMLayerReaderImpl(filter);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(ValidateFilter filter) {
 		return new KDMComponentReaderImpl(filter);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(ValidateFilter filter) {
 		return new KDMSubsystemReaderImpl(filter);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(ValidateFilter filter) {
 		return new KDMArchitectureViewReaderImpl(filter);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(ValidateFilter filter) {
 		return new KDMSoftwareSystemReaderImpl(filter);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReaderWithFilter(ValidateFilter filter) {
 		return new KDMAggregatedRelationshipReaderImpl(filter);
