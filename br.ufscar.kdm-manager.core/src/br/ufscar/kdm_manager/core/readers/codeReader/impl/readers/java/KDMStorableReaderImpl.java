@@ -26,6 +26,8 @@ import java.util.Map;
 
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeElement;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.CodeItem;
@@ -334,6 +336,14 @@ public class KDMStorableReaderImpl implements KDMCodeGenericReader<StorableUnit>
 			}else if(abstractCodeElement instanceof ActionElement ){
 
 				blockStorables.addAll(getAllStorablesFrom((ActionElement)abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof TryUnit ){
+				
+				blockStorables.addAll(getAllStorablesFrom((TryUnit)abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof CatchUnit ){
+				
+				blockStorables.addAll(getAllStorablesFrom((CatchUnit)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof BlockUnit ){
 
@@ -360,6 +370,14 @@ public class KDMStorableReaderImpl implements KDMCodeGenericReader<StorableUnit>
 			}else if(abstractCodeElement instanceof ActionElement ){
 
 				actionStorables.addAll(getAllStorablesFrom((ActionElement)abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof TryUnit ){
+				
+				actionStorables.addAll(getAllStorablesFrom((TryUnit)abstractCodeElement));
+				
+			}else if(abstractCodeElement instanceof CatchUnit ){
+				
+				actionStorables.addAll(getAllStorablesFrom((CatchUnit)abstractCodeElement));
 
 			}else if(abstractCodeElement instanceof BlockUnit ){
 
