@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.EnumeratedType;
 import org.eclipse.gmt.modisco.omg.kdm.code.InterfaceUnit;
@@ -39,6 +41,7 @@ import br.ufscar.kdm_manager.core.readers.codeReader.enums.KDMActionElementsType
 import br.ufscar.kdm_manager.core.readers.codeReader.factory.KDMCodeReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMActionElementReaderImpl;
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMBlockReaderImpl;
+import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMCatchReaderImpl;
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMClassReaderImpl;
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMEnumeratedTypeReaderImpl;
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMInterfaceReaderImpl;
@@ -47,6 +50,7 @@ import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMPackag
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMParameterReaderImpl;
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMSignatureReaderImpl;
 import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMStorableReaderImpl;
+import br.ufscar.kdm_manager.core.readers.codeReader.impl.readers.java.KDMTryReaderImpl;
 import br.ufscar.kdm_manager.core.readers.codeReader.interfaces.KDMCodeGenericReader;
 
 public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCodeReaderJavaFactory {
@@ -143,10 +147,20 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	public KDMCodeGenericReader<MethodUnit> createKDMMethodReaderWithFilter(ValidateFilter filter) {
 		return new KDMMethodReaderImpl(filter);
 	}
-
+	
 	@Override
 	public KDMCodeGenericReader<BlockUnit> createKDMBlockReader() {
 		return new KDMBlockReaderImpl();
+	}
+	
+	@Override
+	public KDMCodeGenericReader<TryUnit> createKDMTryReader() {
+		return new KDMTryReaderImpl();
+	}
+
+	@Override
+	public KDMCodeGenericReader<CatchUnit> createKDMCatchReader() {
+		return new KDMCatchReaderImpl();
 	}
 
 	@Override
@@ -158,10 +172,20 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 	public KDMCodeGenericReader<ParameterUnit> createKDMParameterReader() {
 		return new KDMParameterReaderImpl();
 	}
-
+	
 	@Override
 	public KDMCodeGenericReader<BlockUnit> createKDMBlockReaderWithFilter(ValidateFilter filter) {
 		return new KDMBlockReaderImpl(filter);
+	}
+	
+	@Override
+	public KDMCodeGenericReader<TryUnit> createKDMTryReaderWithFilter(ValidateFilter filter) {
+		return new KDMTryReaderImpl(filter);
+	}
+
+	@Override
+	public KDMCodeGenericReader<CatchUnit> createKDMCatchReaderWithFilter(ValidateFilter filter) {
+		return new KDMCatchReaderImpl(filter);
 	}
 
 	@Override

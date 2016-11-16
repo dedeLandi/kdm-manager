@@ -23,6 +23,8 @@ package br.ufscar.kdm_manager.core.readers.codeReader.factory;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.EnumeratedType;
 import org.eclipse.gmt.modisco.omg.kdm.code.InterfaceUnit;
@@ -57,6 +59,10 @@ public interface KDMCodeReaderJavaFactory extends EFactory {
 	
 	KDMCodeGenericReader<BlockUnit> createKDMBlockReader();
 	
+	KDMCodeGenericReader<TryUnit> createKDMTryReader();
+	
+	KDMCodeGenericReader<CatchUnit> createKDMCatchReader();
+	
 	KDMCodeGenericReader<Signature> createKDMSignatureReader();
 	
 	KDMCodeGenericReader<ParameterUnit> createKDMParameterReader();
@@ -74,8 +80,12 @@ public interface KDMCodeReaderJavaFactory extends EFactory {
 	KDMCodeGenericReader<StorableUnit> createKDMStorableReaderWithFilter(ValidateFilter<?, ?> filter);
 
 	KDMCodeGenericReader<ActionElement> createKDMActionReaderWithFilter(ValidateFilter<?, ?> filter);
-
+	
 	KDMCodeGenericReader<BlockUnit> createKDMBlockReaderWithFilter(ValidateFilter<?, ?> filter);
+	
+	KDMCodeGenericReader<TryUnit> createKDMTryReaderWithFilter(ValidateFilter<?, ?> filter);
+
+	KDMCodeGenericReader<CatchUnit> createKDMCatchReaderWithFilter(ValidateFilter<?, ?> filter);
 	
 	KDMCodeGenericReader<Signature> createKDMSignatureReaderWithFilter(ValidateFilter<?, ?> filter);
 	
