@@ -78,6 +78,7 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 		return new KDMPackageReaderImpl();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<Package> createKDMPackageReaderWithFilter(ValidateFilter filter) {
 		return new KDMPackageReaderImpl(filter);
@@ -88,6 +89,7 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 		return new KDMClassReaderImpl();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<ClassUnit> createKDMClassReaderWithFilter(ValidateFilter filter) {
 		return new KDMClassReaderImpl(filter);
@@ -98,6 +100,7 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 		return new KDMInterfaceReaderImpl();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<InterfaceUnit> createKDMInterfaceReaderWithFilter(ValidateFilter filter) {
 		return new KDMInterfaceReaderImpl(filter);
@@ -108,6 +111,7 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 		return new KDMEnumeratedTypeReaderImpl();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<EnumeratedType> createKDMEnumeratedTypeReaderWithFilter(ValidateFilter filter) {
 		return new KDMEnumeratedTypeReaderImpl(filter);
@@ -118,6 +122,7 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 		return new KDMStorableReaderImpl();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<StorableUnit> createKDMStorableReaderWithFilter(ValidateFilter filter) {
 		return new KDMStorableReaderImpl(filter);
@@ -128,6 +133,7 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 		return new KDMActionElementReaderImpl();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<ActionElement> createKDMActionReaderWithFilter(ValidateFilter filter) {
 		return new KDMActionElementReaderImpl(filter);
@@ -143,6 +149,7 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 		return new KDMMethodReaderImpl();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<MethodUnit> createKDMMethodReaderWithFilter(ValidateFilter filter) {
 		return new KDMMethodReaderImpl(filter);
@@ -173,26 +180,31 @@ public class KDMCodeReaderJavaFactoryImpl extends EFactoryImpl implements KDMCod
 		return new KDMParameterReaderImpl();
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<BlockUnit> createKDMBlockReaderWithFilter(ValidateFilter filter) {
 		return new KDMBlockReaderImpl(filter);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<TryUnit> createKDMTryReaderWithFilter(ValidateFilter filter) {
 		return new KDMTryReaderImpl(filter);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<CatchUnit> createKDMCatchReaderWithFilter(ValidateFilter filter) {
 		return new KDMCatchReaderImpl(filter);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<Signature> createKDMSignatureReaderWithFilter(ValidateFilter filter) {
 		return new KDMSignatureReaderImpl(filter);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public KDMCodeGenericReader<ParameterUnit> createKDMParameterReaderWithFilter(ValidateFilter filter) {
 		return new KDMParameterReaderImpl(filter);
