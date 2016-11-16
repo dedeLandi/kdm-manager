@@ -26,6 +26,8 @@ import java.util.Map;
 
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeElement;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
@@ -263,6 +265,10 @@ public class KDMRelationshipReaderHasValueImpl implements KDMRelationshipGeneric
 				hasValueRelations.addAll(this.getAllRelationshipOf((ActionElement)abstractCodeElement));
 			}else if(abstractCodeElement instanceof StorableUnit){
 				hasValueRelations.addAll(this.getAllRelationshipOf((StorableUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof TryUnit){
+				hasValueRelations.addAll(this.getAllRelationshipOf((TryUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof CatchUnit){
+				hasValueRelations.addAll(this.getAllRelationshipOf((CatchUnit)abstractCodeElement));
 			}else if(abstractCodeElement instanceof BlockUnit){
 				hasValueRelations.addAll(this.getAllRelationshipOf((BlockUnit)abstractCodeElement));
 			}
@@ -282,6 +288,10 @@ public class KDMRelationshipReaderHasValueImpl implements KDMRelationshipGeneric
 				hasValueRelations.addAll(this.getAllRelationshipOf((ActionElement)abstractCodeElement));
 			}else if(abstractCodeElement instanceof StorableUnit){
 				hasValueRelations.addAll(this.getAllRelationshipOf((StorableUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof TryUnit){
+				hasValueRelations.addAll(this.getAllRelationshipOf((TryUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof CatchUnit){
+				hasValueRelations.addAll(this.getAllRelationshipOf((CatchUnit)abstractCodeElement));
 			}else if(abstractCodeElement instanceof BlockUnit){
 				hasValueRelations.addAll(this.getAllRelationshipOf((BlockUnit)abstractCodeElement));
 			}
