@@ -88,6 +88,14 @@ public class KDMRelationshipReaderExtendsImpl implements KDMRelationshipGenericR
 		
 		List<Extends> extendsRecovered = new ArrayList<Extends>();
 		
+		for (AbstractCodeRelationship abstractCodeRelationship : packageToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof Extends){
+				extendsRecovered.add((Extends) abstractCodeRelationship);
+			}
+			
+		}
+		
 		for (AbstractCodeElement abstractCodeElement : packageToAvaliate.getCodeElement()) {
 			
 			if(abstractCodeElement instanceof InterfaceUnit){
