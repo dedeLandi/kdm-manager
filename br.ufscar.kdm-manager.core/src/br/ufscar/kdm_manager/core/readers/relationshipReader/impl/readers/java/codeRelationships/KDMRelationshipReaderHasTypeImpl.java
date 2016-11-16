@@ -88,6 +88,14 @@ public class KDMRelationshipReaderHasTypeImpl implements KDMRelationshipGenericR
 
 		List<HasType> hasTypeRecovered = new ArrayList<HasType>();
 
+		for (AbstractCodeRelationship abstractCodeRelationship : packageToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof HasType){
+				hasTypeRecovered.add((HasType) abstractCodeRelationship);
+			}
+			
+		}
+		
 		for (AbstractCodeElement abstractCodeElement : packageToAvaliate.getCodeElement()) {
 
 			if(abstractCodeElement instanceof InterfaceUnit){
@@ -108,6 +116,14 @@ public class KDMRelationshipReaderHasTypeImpl implements KDMRelationshipGenericR
 	public List<HasType> getAllRelationshipOf(ClassUnit classToAvaliate) {
 		List<HasType> hasTypeRecovered = new ArrayList<HasType>();
 
+		for (AbstractCodeRelationship abstractCodeRelationship : classToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof HasType){
+				hasTypeRecovered.add((HasType) abstractCodeRelationship);
+			}
+			
+		}
+		
 		for (CodeItem codeItem : classToAvaliate.getCodeElement()) {
 
 			if(codeItem instanceof InterfaceUnit){
@@ -127,6 +143,14 @@ public class KDMRelationshipReaderHasTypeImpl implements KDMRelationshipGenericR
 
 		List<HasType> hasTypeRecovered = new ArrayList<HasType>();
 
+		for (AbstractCodeRelationship abstractCodeRelationship : interfaceToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof HasType){
+				hasTypeRecovered.add((HasType) abstractCodeRelationship);
+			}
+			
+		}
+		
 		for (CodeItem codeItem : interfaceToAvaliate.getCodeElement()) {
 
 			if(codeItem instanceof InterfaceUnit){
@@ -145,6 +169,14 @@ public class KDMRelationshipReaderHasTypeImpl implements KDMRelationshipGenericR
 	public List<HasType> getAllRelationshipOf(EnumeratedType enumeratedTypeToAvaliate) {
 		List<HasType> hasTypeRecovered = new ArrayList<HasType>();
 
+		for (AbstractCodeRelationship abstractCodeRelationship : enumeratedTypeToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof HasType){
+				hasTypeRecovered.add((HasType) abstractCodeRelationship);
+			}
+			
+		}
+		
 		for (CodeItem codeItem : enumeratedTypeToAvaliate.getCodeElement()) {
 
 			if(codeItem instanceof InterfaceUnit){
