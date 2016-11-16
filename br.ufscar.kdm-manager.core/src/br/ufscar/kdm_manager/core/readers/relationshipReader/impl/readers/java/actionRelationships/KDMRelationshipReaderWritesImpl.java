@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.gmt.modisco.omg.kdm.action.AbstractActionRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
 import org.eclipse.gmt.modisco.omg.kdm.action.Writes;
@@ -209,6 +210,21 @@ public class KDMRelationshipReaderWritesImpl implements KDMRelationshipGenericRe
 		
 		List<Writes> writesRecovered = new ArrayList<Writes>();
 
+		for (AbstractCodeRelationship abstractCodeRelationship : blockToAvaliate.getCodeRelation()) {
+			
+			if(abstractCodeRelationship instanceof Writes){
+				writesRecovered.add((Writes) abstractCodeRelationship);
+			}
+			
+		}
+		for (AbstractActionRelationship abstractActionRelationship : blockToAvaliate.getActionRelation()) {
+
+			if(abstractActionRelationship instanceof Writes){
+				writesRecovered.add((Writes) abstractActionRelationship);
+			}
+
+		}
+		
 		for (AbstractCodeElement abstractCodeElement : blockToAvaliate.getCodeElement()) {
 
 			if(abstractCodeElement instanceof ActionElement){
@@ -235,6 +251,13 @@ public class KDMRelationshipReaderWritesImpl implements KDMRelationshipGenericRe
 			
 			if(abstractCodeRelationship instanceof Writes){
 				writesRecovered.add((Writes) abstractCodeRelationship);
+			}
+			
+		}
+		for (AbstractActionRelationship abstractActionRelationship : actionElementToAvaliate.getActionRelation()) {
+			
+			if(abstractActionRelationship instanceof Writes){
+				writesRecovered.add((Writes) abstractActionRelationship);
 			}
 			
 		}
