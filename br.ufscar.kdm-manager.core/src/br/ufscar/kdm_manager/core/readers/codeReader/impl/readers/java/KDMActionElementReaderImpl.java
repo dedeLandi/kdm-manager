@@ -41,7 +41,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.codeReader.enums.KDMActionElementsType;
 import br.ufscar.kdm_manager.core.readers.codeReader.interfaces.KDMCodeGenericReader;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
@@ -52,7 +52,7 @@ public class KDMActionElementReaderImpl implements KDMCodeGenericReader<ActionEl
 	private boolean hasFilterType = false;
 	private boolean hasFilter = false;
 
-	private ValidateFilter<ActionElement, ?> filter = null;
+	private KDMValidateFilter<ActionElement, ?> filter = null;
 
 	private KDMActionElementsType filterActionElementType = null;
 
@@ -67,7 +67,7 @@ public class KDMActionElementReaderImpl implements KDMCodeGenericReader<ActionEl
 		this.filter = null;
 		this.filterActionElementType = actionElementType;
 	}
-	public KDMActionElementReaderImpl(ValidateFilter<ActionElement, ?> filter) {
+	public KDMActionElementReaderImpl(KDMValidateFilter<ActionElement, ?> filter) {
 		this.hasNoFilter = false;
 		this.hasFilterType  = false;
 		this.hasFilter  = true;

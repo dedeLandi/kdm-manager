@@ -34,7 +34,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.ParameterUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.codeReader.enums.KDMActionElementsType;
 import br.ufscar.kdm_manager.core.readers.codeReader.interfaces.KDMCodeGenericReader;
 
@@ -67,29 +67,29 @@ public interface KDMCodeReaderJavaFactory extends EFactory {
 	
 	KDMCodeGenericReader<ParameterUnit> createKDMParameterReader();
 	
-	KDMCodeGenericReader<Package> createKDMPackageReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<Package> createKDMPackageReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<ClassUnit> createKDMClassReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<ClassUnit> createKDMClassReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<InterfaceUnit> createKDMInterfaceReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<InterfaceUnit> createKDMInterfaceReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<EnumeratedType> createKDMEnumeratedTypeReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<EnumeratedType> createKDMEnumeratedTypeReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<MethodUnit> createKDMMethodReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<MethodUnit> createKDMMethodReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<StorableUnit> createKDMStorableReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<StorableUnit> createKDMStorableReaderWithFilter(KDMValidateFilter<?, ?> filter);
 
-	KDMCodeGenericReader<ActionElement> createKDMActionReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<ActionElement> createKDMActionReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<BlockUnit> createKDMBlockReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<BlockUnit> createKDMBlockReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<TryUnit> createKDMTryReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<TryUnit> createKDMTryReaderWithFilter(KDMValidateFilter<?, ?> filter);
 
-	KDMCodeGenericReader<CatchUnit> createKDMCatchReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<CatchUnit> createKDMCatchReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<Signature> createKDMSignatureReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<Signature> createKDMSignatureReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMCodeGenericReader<ParameterUnit> createKDMParameterReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMCodeGenericReader<ParameterUnit> createKDMParameterReaderWithFilter(KDMValidateFilter<?, ?> filter);
 
 	KDMCodeGenericReader<ActionElement> createKDMActionReaderWithFilter(KDMActionElementsType kdmActionElementsType);
 	

@@ -39,7 +39,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.codeReader.interfaces.KDMCodeGenericReader;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
 
@@ -48,13 +48,13 @@ public class KDMSignatureReaderImpl implements KDMCodeGenericReader<Signature>{
 	private boolean hasNoFilter = true;
 	private boolean hasFilter = false;
 
-	private ValidateFilter<Signature, ?> filter = null;
+	private KDMValidateFilter<Signature, ?> filter = null;
 
 	public KDMSignatureReaderImpl() {
 		super();
 	}
 
-	public KDMSignatureReaderImpl(ValidateFilter<Signature, ?> filter) {
+	public KDMSignatureReaderImpl(KDMValidateFilter<Signature, ?> filter) {
 		this.hasNoFilter = false;
 		this.hasFilter  = true;
 		this.filter = filter;
