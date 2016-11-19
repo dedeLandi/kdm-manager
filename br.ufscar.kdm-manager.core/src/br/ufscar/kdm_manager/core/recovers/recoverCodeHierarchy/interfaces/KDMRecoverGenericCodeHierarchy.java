@@ -31,12 +31,10 @@ import org.eclipse.gmt.modisco.omg.kdm.code.ParameterUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 
-public interface KDMRecoverGenericCodeHierarchy<R> {
+import br.ufscar.kdm_manager.core.recovers.util.KDMISeparatorStringHierarchy;
 
-	public static final String SEPARATOR_TYPE = ".";
-	public static final String SEPARATOR_CLASS_TYPE = "[?]";
-	public static final String SEPARATOR_IMPLEMENT_TYPE = "{?}";
-	
+public interface KDMRecoverGenericCodeHierarchy<R> extends KDMISeparatorStringHierarchy{
+
 	public R getHierarchyOf(Package packageToAvaliate);
 
 	public R getHierarchyOf(ClassUnit classToAvaliate);
