@@ -30,7 +30,7 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.Layer;
 import org.eclipse.gmt.modisco.omg.kdm.structure.SoftwareSystem;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Subsystem;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.structureReader.factory.KDMStructureReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.structureReader.impl.readers.java.KDMAggregatedRelationshipReaderImpl;
 import br.ufscar.kdm_manager.core.readers.structureReader.impl.readers.java.KDMArchitectureViewReaderImpl;
@@ -91,37 +91,37 @@ public class KDMStructureReaderJavaFactoryImpl extends EFactoryImpl implements K
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(ValidateFilter filter) {
+	public KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMLayerReaderImpl(filter);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(ValidateFilter filter) {
+	public KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMComponentReaderImpl(filter);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(ValidateFilter filter) {
+	public KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMSubsystemReaderImpl(filter);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(ValidateFilter filter) {
+	public KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMArchitectureViewReaderImpl(filter);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(ValidateFilter filter) {
+	public KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMSoftwareSystemReaderImpl(filter);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReaderWithFilter(ValidateFilter filter) {
+	public KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMAggregatedRelationshipReaderImpl(filter);
 	}
 

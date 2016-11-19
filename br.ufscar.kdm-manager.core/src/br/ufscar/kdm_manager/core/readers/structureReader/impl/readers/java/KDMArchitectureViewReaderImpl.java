@@ -33,7 +33,7 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.SoftwareSystem;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Subsystem;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.structureReader.interfaces.KDMStructureGenericReader;
 
@@ -42,13 +42,13 @@ public class KDMArchitectureViewReaderImpl implements KDMStructureGenericReader<
 	private boolean hasNoFilter = true;
 	private boolean hasFilter = false;
 
-	private ValidateFilter<ArchitectureView, ?> filter = null;
+	private KDMValidateFilter<ArchitectureView, ?> filter = null;
 
 	public KDMArchitectureViewReaderImpl() {
 		super();
 	}
 
-	public KDMArchitectureViewReaderImpl(ValidateFilter<ArchitectureView, ?> elementName) {
+	public KDMArchitectureViewReaderImpl(KDMValidateFilter<ArchitectureView, ?> elementName) {
 		this.hasNoFilter = false;
 		this.hasFilter  = true;
 		this.filter = elementName;
