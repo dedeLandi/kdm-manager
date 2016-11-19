@@ -23,22 +23,24 @@ package br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java;
 import org.eclipse.gmt.modisco.omg.kdm.core.AggregatedRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.core.KDMEntity;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 
 /**
  * @author Landi
  *
  */
-public class ValidateFilterFromAggregated implements ValidateFilter<AggregatedRelationship, KDMEntity> {
+public class KDMValidateFilterToFromAggregated implements KDMValidateFilter<AggregatedRelationship, KDMEntity[]> {
 
-	private KDMEntity elementToAvaliate = null;
+	private KDMEntity elementToToAvaliate = null;
+	private KDMEntity elementFromToAvaliate = null;
 	
 	/* (non-Javadoc)
 	 * @see br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter#setValue(java.lang.Object)
 	 */
 	@Override
-	public void setValue(KDMEntity elementToAvaliate) {
-		this.elementToAvaliate = elementToAvaliate;
+	public void setValue(KDMEntity[] elementToAvaliate) {
+		this.elementToToAvaliate = elementToAvaliate[0];
+		this.elementFromToAvaliate = elementToAvaliate[1];
 	}
 
 	/* (non-Javadoc)
@@ -46,7 +48,7 @@ public class ValidateFilterFromAggregated implements ValidateFilter<AggregatedRe
 	 */
 	@Override
 	public boolean validateElement(AggregatedRelationship elementToValidate) {
-		return this.elementToAvaliate.equals(elementToValidate.getFrom());
+		return this.elementToToAvaliate.equals(elementToValidate.getTo()) && this.elementFromToAvaliate.equals(elementToValidate.getFrom());
 	}
 
 

@@ -18,12 +18,36 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.filters.validateFilter.interfaces;
+package br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java;
 
-public interface ValidateFilter<Z, Y> {
+import org.eclipse.gmt.modisco.omg.kdm.core.AggregatedRelationship;
+import org.eclipse.gmt.modisco.omg.kdm.core.KDMEntity;
 
-	public void setValue(Y value);
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
+
+/**
+ * @author Landi
+ *
+ */
+public class KDMValidateFilterFromAggregated implements KDMValidateFilter<AggregatedRelationship, KDMEntity> {
+
+	private KDMEntity elementToAvaliate = null;
 	
-	public boolean validateElement(Z elementToValidate);
-	
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter#setValue(java.lang.Object)
+	 */
+	@Override
+	public void setValue(KDMEntity elementToAvaliate) {
+		this.elementToAvaliate = elementToAvaliate;
+	}
+
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter#validateElement(java.lang.Object)
+	 */
+	@Override
+	public boolean validateElement(AggregatedRelationship elementToValidate) {
+		return this.elementToAvaliate.equals(elementToValidate.getFrom());
+	}
+
+
 }

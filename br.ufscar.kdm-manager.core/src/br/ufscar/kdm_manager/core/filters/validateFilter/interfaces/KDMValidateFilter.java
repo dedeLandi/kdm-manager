@@ -18,26 +18,12 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.filters.validateFilter.impl.filters.java;
+package br.ufscar.kdm_manager.core.filters.validateFilter.interfaces;
 
-import org.eclipse.gmt.modisco.omg.kdm.core.KDMEntity;
+public interface KDMValidateFilter<Z, Y> {
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
-
-public class ValidateFilterNameKDMEntity implements ValidateFilter<KDMEntity, String> {
-
-	private String value;
+	public void setValue(Y value);
 	
-	@Override
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	@Override
-	public boolean validateElement(KDMEntity elementToValidate) {
-		return elementToValidate.getName().equalsIgnoreCase(this.value);
-	}
-
+	public boolean validateElement(Z elementToValidate);
 	
-
 }
