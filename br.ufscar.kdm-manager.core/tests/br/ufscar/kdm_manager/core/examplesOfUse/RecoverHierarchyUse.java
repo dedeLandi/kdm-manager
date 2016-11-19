@@ -24,11 +24,14 @@ import java.util.List;
 
 import org.eclipse.gmt.modisco.omg.kdm.code.MethodUnit;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
+import org.eclipse.gmt.modisco.omg.kdm.structure.Layer;
 
 import br.ufscar.kdm_manager.core.exceptions.KDMFileException;
 import br.ufscar.kdm_manager.core.loads.factory.KDMFileReaderFactory;
 import br.ufscar.kdm_manager.core.readers.codeReader.factory.KDMCodeReaderJavaFactory;
+import br.ufscar.kdm_manager.core.readers.structureReader.factory.KDMStructureReaderJavaFactory;
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.factory.KDMRecoverCodeHierarchyJavaFactory;
+import br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.factory.KDMRecoverStructureHierarchyJavaFactory;
 
 public class RecoverHierarchyUse {
 
@@ -39,23 +42,40 @@ public class RecoverHierarchyUse {
 			
 			Segment raizKDM = KDMFileReaderFactory.eINSTANCE.createKDMFileReaderToSegment().readFromPath(pathKDMFile);
 			
-//			ValidateFilter<?, ?> filter = ValidateFilterJavaFactory.eINSTANCE.createValidateFilterNameOfKDMEntity("StudentClassController");
-//			List<MethodUnit> allMethods = KDMCodeReaderJavaFactory.eINSTANCE.createKDMMethodReaderWithFilter(filter).getAllFrom(raizKDM);
-			List<MethodUnit> allMethods = KDMCodeReaderJavaFactory.eINSTANCE.createKDMMethodReader().getAllFrom(raizKDM);
+			allMethods(raizKDM);
 			
+			allLayers(raizKDM);
 			
-			for (MethodUnit methodUnit : allMethods) {
-				System.out.print("MethodUnit: " + methodUnit.getName() + " Caminho: ");
-//				System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeStructureHierarchyComplete().getHierarchyOf(methodUnit));
-				System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeHierarchyModel().getHierarchyOf(methodUnit));
-				System.out.println();
-			}
 		} catch (KDMFileException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
+	}
+
+	private static void allLayers(Segment raizKDM) {
+		List<Layer> allLayers = KDMStructureReaderJavaFactory.eINSTANCE.createKDMLayerReader().getAllFrom(raizKDM);
+		
+		for (Layer layer : allLayers) {
+			System.out.print("Layer: " + layer.getName() + " Caminho: ");
+			System.err.println(KDMRecoverStructureHierarchyJavaFactory.eINSTANCE.createRecoverStructureHierarchyModel().getHierarchyOf(layer));
+			System.out.println();
+		}
+	}
+
+	private static void allMethods(Segment raizKDM) {
+		//			ValidateFilter<?, ?> filter = ValidateFilterJavaFactory.eINSTANCE.createValidateFilterNameOfKDMEntity("StudentClassController");
+		//			List<MethodUnit> allMethods = KDMCodeReaderJavaFactory.eINSTANCE.createKDMMethodReaderWithFilter(filter).getAllFrom(raizKDM);
+					List<MethodUnit> allMethods = KDMCodeReaderJavaFactory.eINSTANCE.createKDMMethodReader().getAllFrom(raizKDM);
+					
+					
+					for (MethodUnit methodUnit : allMethods) {
+						System.out.print("MethodUnit: " + methodUnit.getName() + " Caminho: ");
+		//				System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeStructureHierarchyComplete().getHierarchyOf(methodUnit));
+						System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeHierarchyModel().getHierarchyOf(methodUnit));
+						System.out.println();
+					}
 	}
 	
 }
