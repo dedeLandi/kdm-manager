@@ -31,22 +31,76 @@ import org.eclipse.gmt.modisco.omg.kdm.code.HasValue;
 import org.eclipse.gmt.modisco.omg.kdm.code.Implements;
 import org.eclipse.gmt.modisco.omg.kdm.code.Imports;
 
+import br.ufscar.kdm_manager.core.readers.relationshipReader.factory.KDMRelationshipReaderJavaFactory;
+import br.ufscar.kdm_manager.core.readers.relationshipReader.interfaces.KDMITypeRelations;
+import br.ufscar.kdm_manager.core.readers.relationshipReader.interfaces.KDMRelationshipGenericReader;
+
 /**
  * @author Landi
  *
  */
-public enum KDMTypeRelations {
+public enum KDMTypeRelations implements KDMITypeRelations{
 
-	CALLS		("Calls", 		Calls.class),
-	CREATES		("Creates", 	Creates.class),
-	READS		("Reads", 		Reads.class),
-	USES_TYPE	("UsesType", 	UsesType.class),
-	WRITES		("Writes", 		Writes.class),
-	EXTENDS		("Extends", 	Extends.class),
-	HAS_TYPE	("HasType", 	HasType.class),
-	HAS_VALUE	("HasValue", 	HasValue.class),
-	IMPLEMENTS	("Implements", 	Implements.class),
-	IMPORTS		("Imports", 	Imports.class);
+	CALLS		("Calls", 		Calls.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createCallsRecover();
+		}
+	},
+	CREATES		("Creates", 	Creates.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createCreatesRecover();
+		}
+	},
+	READS		("Reads", 		Reads.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createReadsRecover();
+		}
+	},
+	USES_TYPE	("UsesType", 	UsesType.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createUsesTypeRecover();
+		}
+	},
+	WRITES		("Writes", 		Writes.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createWritesRecover();
+		}
+	},
+	EXTENDS		("Extends", 	Extends.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createExtendsRecover();
+		}
+	},
+	HAS_TYPE	("HasType", 	HasType.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createHasTypeRecover();
+		}
+	},
+	HAS_VALUE	("HasValue", 	HasValue.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createHasValueRecover();
+		}
+	},
+	IMPLEMENTS	("Implements", 	Implements.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createImplementsRecover();
+		}
+	},
+	IMPORTS		("Imports", 	Imports.class){
+		@Override
+		public KDMRelationshipGenericReader<?> getReader() {
+			return KDMRelationshipReaderJavaFactory.eINSTANCE.createImportsRecover();
+		}
+	};
 	
 	private String name;
 	private Class<?> classType;
