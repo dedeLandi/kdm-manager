@@ -24,16 +24,16 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import br.ufscar.kdm_manager.core.complements.complementRelationship.factory.ComplementsRelationshipFactory;
-import br.ufscar.kdm_manager.core.complements.complementRelationship.impl.complements.java.ComplementsRelationshipHasTypeImpl;
-import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsGenericRelationship;
+import br.ufscar.kdm_manager.core.complements.complementRelationship.factory.KDMComplementsRelationshipFactory;
+import br.ufscar.kdm_manager.core.complements.complementRelationship.impl.complements.java.KDMComplementsRelationshipHasTypeImpl;
+import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.KDMComplementsGenericRelationship;
 
-public class ComplementsRelationshipFactoryImpl extends EFactoryImpl implements ComplementsRelationshipFactory {
+public class KDMComplementsRelationshipFactoryImpl extends EFactoryImpl implements KDMComplementsRelationshipFactory {
 
 	
-	public static ComplementsRelationshipFactory init() {
+	public static KDMComplementsRelationshipFactory init() {
 		try {
-			ComplementsRelationshipFactory theComplementsRelationsFactoryFactory = (ComplementsRelationshipFactory)EPackage.Registry.INSTANCE.getEFactory("br.ufscar.KDM_MANAGEMENT.complements.complementRelations.factory.ComplementsRelationsFactory"); //$NON-NLS-1$ 
+			KDMComplementsRelationshipFactory theComplementsRelationsFactoryFactory = (KDMComplementsRelationshipFactory)EPackage.Registry.INSTANCE.getEFactory("br.ufscar.KDM_MANAGEMENT.complements.complementRelations.factory.ComplementsRelationsFactory"); //$NON-NLS-1$ 
 			if (theComplementsRelationsFactoryFactory != null) {
 				return theComplementsRelationsFactoryFactory;
 			}
@@ -41,152 +41,152 @@ public class ComplementsRelationshipFactoryImpl extends EFactoryImpl implements 
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new ComplementsRelationshipFactoryImpl();
+		return new KDMComplementsRelationshipFactoryImpl();
 	}
 	
-	public ComplementsRelationshipFactoryImpl() {
+	public KDMComplementsRelationshipFactoryImpl() {
 		super();
 	}
 
 	@Override
-	public ComplementsGenericRelationship createInstanceOfComplements() {
+	public KDMComplementsGenericRelationship createInstanceOfComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createParameterToComplements() {
+	public KDMComplementsGenericRelationship createParameterToComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createImplementsComplements() {
+	public KDMComplementsGenericRelationship createImplementsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createImplementationOfComplements() {
+	public KDMComplementsGenericRelationship createImplementationOfComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createHasTypeComplements() {
-		return new ComplementsRelationshipHasTypeImpl();
+	public KDMComplementsGenericRelationship createHasTypeComplements() {
+		return new KDMComplementsRelationshipHasTypeImpl();
 	}
 
 	@Override
-	public ComplementsGenericRelationship createHasValueComplements() {
+	public KDMComplementsGenericRelationship createHasValueComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createExtendsComplements() {
+	public KDMComplementsGenericRelationship createExtendsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createGeneratedFromComplements() {
+	public KDMComplementsGenericRelationship createGeneratedFromComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createIncludesComplements() {
+	public KDMComplementsGenericRelationship createIncludesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createVariantToComplements() {
+	public KDMComplementsGenericRelationship createVariantToComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createRedefinesComplements() {
+	public KDMComplementsGenericRelationship createRedefinesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createVisibleInComplements() {
+	public KDMComplementsGenericRelationship createVisibleInComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createImportsComplements() {
+	public KDMComplementsGenericRelationship createImportsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createControlFlowComplements() {
+	public KDMComplementsGenericRelationship createControlFlowComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createEntryFlowComplements() {
+	public KDMComplementsGenericRelationship createEntryFlowComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createCallsComplements() {
+	public KDMComplementsGenericRelationship createCallsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createDispatchesComplements() {
+	public KDMComplementsGenericRelationship createDispatchesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createReadsComplements() {
+	public KDMComplementsGenericRelationship createReadsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createWritesComplements() {
+	public KDMComplementsGenericRelationship createWritesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createAddressesComplements() {
+	public KDMComplementsGenericRelationship createAddressesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createCreatesComplements() {
+	public KDMComplementsGenericRelationship createCreatesComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createExitFlowComplements() {
+	public KDMComplementsGenericRelationship createExitFlowComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createThrowsComplements() {
+	public KDMComplementsGenericRelationship createThrowsComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ComplementsGenericRelationship createUsesTypeComplements() {
+	public KDMComplementsGenericRelationship createUsesTypeComplements() {
 		// TODO Auto-generated method stub
 		return null;
 	}

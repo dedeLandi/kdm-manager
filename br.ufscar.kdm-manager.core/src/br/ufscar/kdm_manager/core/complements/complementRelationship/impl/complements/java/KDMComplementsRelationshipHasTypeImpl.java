@@ -38,9 +38,9 @@ import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
-import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.ComplementsGenericRelationship;
+import br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces.KDMComplementsGenericRelationship;
 
-public class ComplementsRelationshipHasTypeImpl implements ComplementsGenericRelationship{
+public class KDMComplementsRelationshipHasTypeImpl implements KDMComplementsGenericRelationship{
 
 	@Override
 	public ClassUnit complementsRelationOf(ClassUnit classToUpdate) {

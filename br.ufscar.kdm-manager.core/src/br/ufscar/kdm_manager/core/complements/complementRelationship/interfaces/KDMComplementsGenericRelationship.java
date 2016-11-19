@@ -33,7 +33,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
-public interface ComplementsGenericRelationship {
+public interface KDMComplementsGenericRelationship {
 
 	
 	public ClassUnit complementsRelationOf(ClassUnit classToUpdate);
