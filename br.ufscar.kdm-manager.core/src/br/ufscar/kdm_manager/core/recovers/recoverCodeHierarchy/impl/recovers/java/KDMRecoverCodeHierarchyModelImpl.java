@@ -36,7 +36,7 @@ import org.eclipse.gmt.modisco.omg.kdm.kdm.KDMModel;
 
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericCodeHierarchy;
 
-public class KDMRecoverCodeHierarchySegmentImpl implements KDMRecoverGenericCodeHierarchy<String> {
+public class KDMRecoverCodeHierarchyModelImpl implements KDMRecoverGenericCodeHierarchy<String> {
 
 
 	private String getHierarchyOf(KDMModel modelToAvaliate) {

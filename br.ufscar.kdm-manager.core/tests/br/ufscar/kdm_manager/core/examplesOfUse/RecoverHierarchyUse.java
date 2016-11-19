@@ -47,7 +47,7 @@ public class RecoverHierarchyUse {
 			for (MethodUnit methodUnit : allMethods) {
 				System.out.print("MethodUnit: " + methodUnit.getName() + " Caminho: ");
 //				System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeStructureHierarchyComplete().getHierarchyOf(methodUnit));
-				System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeHierarchySegment().getHierarchyOf(methodUnit));
+				System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeHierarchyModel().getHierarchyOf(methodUnit));
 				System.out.println();
 			}
 		} catch (KDMFileException e) {

@@ -38,7 +38,7 @@ public interface KDMRecoverCodeHierarchyJavaFactory {
 	
 	KDMRecoverGenericCodeHierarchy<AbstractStructureElement> createRecoverCodeStructureHierarchyFirstArchitecturalElement();
 
-	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchySegment();
+	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyModel();
 	
 	
 }
