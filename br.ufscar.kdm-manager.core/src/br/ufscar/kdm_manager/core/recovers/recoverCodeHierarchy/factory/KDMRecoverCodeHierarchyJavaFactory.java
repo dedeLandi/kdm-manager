@@ -18,25 +18,27 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.recovers.recoverHierarchy.factory;
+package br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.factory;
 
 import org.eclipse.gmt.modisco.omg.kdm.structure.AbstractStructureElement;
 
-import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.interfaces.RecoverGenericHierarchy;
+import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericCodeHierarchy;
 
-public interface RecoverHierarchyJavaFactory {
+public interface KDMRecoverCodeHierarchyJavaFactory {
 
-	RecoverHierarchyJavaFactory eINSTANCE = br.ufscar.kdm_manager.core.recovers.recoverHierarchy.impl.factory.RecoverHierarchyJavaFactoryImpl.init();
+	KDMRecoverCodeHierarchyJavaFactory eINSTANCE = br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.factory.KDMRecoverCodeHierarchyJavaFactoryImpl.init();
 	
-	RecoverGenericHierarchy<String> createRecoverHierarchyComplete();
+	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyComplete();
 	
-	RecoverGenericHierarchy<String> createRecoverHierarchyUntilFirstEntity();
+	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyFirstEntity();
 	
-	RecoverGenericHierarchy<String> createRecoverHierarchyUntilFirstPackage();
+	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyFirstPackage();
 	
-	RecoverGenericHierarchy<String> createRecoverHierarchyCompleteArchitectural();
+	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeStructureHierarchyComplete();
 	
-	RecoverGenericHierarchy<AbstractStructureElement> createRecoverHierarchyFirstArchitecturalElement();
+	KDMRecoverGenericCodeHierarchy<AbstractStructureElement> createRecoverCodeStructureHierarchyFirstArchitecturalElement();
+
+	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchySegment();
 	
 	
 }

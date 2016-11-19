@@ -28,7 +28,7 @@ import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 import br.ufscar.kdm_manager.core.exceptions.KDMFileException;
 import br.ufscar.kdm_manager.core.loads.factory.KDMFileReaderFactory;
 import br.ufscar.kdm_manager.core.readers.codeReader.factory.KDMCodeReaderJavaFactory;
-import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.factory.RecoverHierarchyJavaFactory;
+import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.factory.KDMRecoverCodeHierarchyJavaFactory;
 
 public class RecoverHierarchyUse {
 
@@ -46,7 +46,8 @@ public class RecoverHierarchyUse {
 			
 			for (MethodUnit methodUnit : allMethods) {
 				System.out.print("MethodUnit: " + methodUnit.getName() + " Caminho: ");
-				System.err.println(RecoverHierarchyJavaFactory.eINSTANCE.createRecoverHierarchyCompleteArchitectural().getHierarchyOf(methodUnit));
+//				System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeStructureHierarchyComplete().getHierarchyOf(methodUnit));
+				System.err.println(KDMRecoverCodeHierarchyJavaFactory.eINSTANCE.createRecoverCodeHierarchySegment().getHierarchyOf(methodUnit));
 				System.out.println();
 			}
 		} catch (KDMFileException e) {

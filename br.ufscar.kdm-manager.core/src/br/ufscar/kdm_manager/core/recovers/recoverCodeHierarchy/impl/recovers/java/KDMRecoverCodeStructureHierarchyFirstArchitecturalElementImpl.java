@@ -18,7 +18,7 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
  *******************************************************************************/
-package br.ufscar.kdm_manager.core.recovers.recoverHierarchy.impl.recovers.java;
+package br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.recovers.java;
 
 import java.util.List;
 import java.util.Map;
@@ -42,9 +42,9 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.AbstractStructureElement;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
-import br.ufscar.kdm_manager.core.recovers.recoverHierarchy.interfaces.RecoverGenericHierarchy;
+import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericCodeHierarchy;
 
-public class RecoverHierarchyFirstArchitecturalElementImpl implements RecoverGenericHierarchy<AbstractStructureElement> {
+public class KDMRecoverCodeStructureHierarchyFirstArchitecturalElementImpl implements KDMRecoverGenericCodeHierarchy<AbstractStructureElement> {
 
 	private Segment segmentToAvaliate = null;
 	private AbstractStructureElement architecturalElementIs = null;

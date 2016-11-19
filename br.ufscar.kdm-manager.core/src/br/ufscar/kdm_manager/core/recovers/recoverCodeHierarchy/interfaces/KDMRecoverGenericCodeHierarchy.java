@@ -18,7 +18,7 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.recovers.recoverHierarchy.interfaces;
+package br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces;
 
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
@@ -31,7 +31,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.ParameterUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.Signature;
 import org.eclipse.gmt.modisco.omg.kdm.code.StorableUnit;
 
-public interface RecoverGenericHierarchy<R> {
+public interface KDMRecoverGenericCodeHierarchy<R> {
 
 	public static final String SEPARATOR_TYPE = ".";
 	public static final String SEPARATOR_CLASS_TYPE = "[?]";
