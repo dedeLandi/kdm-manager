@@ -43,6 +43,7 @@ public class RecoverHierarchyUse {
 //			List<MethodUnit> allMethods = KDMCodeReaderJavaFactory.eINSTANCE.createKDMMethodReaderWithFilter(filter).getAllFrom(raizKDM);
 			List<MethodUnit> allMethods = KDMCodeReaderJavaFactory.eINSTANCE.createKDMMethodReader().getAllFrom(raizKDM);
 			
+			
 			for (MethodUnit methodUnit : allMethods) {
 				System.out.print("MethodUnit: " + methodUnit.getName() + " Caminho: ");
 				System.err.println(RecoverHierarchyJavaFactory.eINSTANCE.createRecoverHierarchyCompleteArchitectural().getHierarchyOf(methodUnit));
