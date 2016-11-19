@@ -20,7 +20,7 @@
   *******************************************************************************/
 package br.ufscar.kdm_manager.core.discoverers;
 
-public class JavaModelDiscover {
+public class KDMJavaModelDiscover {
 
 	/*
 Each MoDisco discoverer responds to a normalized interface and can be called programmatically (see org.eclipse.modisco.infra.discovery.core.IDiscoverer<T>).
