@@ -29,7 +29,7 @@ import org.eclipse.gmt.modisco.omg.kdm.kdm.KDMModel;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.KDMModelGenericReader;
 
 public class KDMStructureModelReaderImpl implements KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> {
@@ -37,14 +37,14 @@ public class KDMStructureModelReaderImpl implements KDMModelGenericReader<Map<St
 	private boolean hasNoFilter = true;
 	private boolean hasFilter = false;
 
-	private ValidateFilter<StructureModel, ?> filter = null;
+	private KDMValidateFilter<StructureModel, ?> filter = null;
 
 	public KDMStructureModelReaderImpl() {
 		super();
 	}
 
-	public KDMStructureModelReaderImpl(ValidateFilter<StructureModel, ?> filter) {
-		this.hasNoFilter = true;
+	public KDMStructureModelReaderImpl(KDMValidateFilter<StructureModel, ?> filter) {
+		this.hasNoFilter = false;
 		this.hasFilter  = true;
 		this.filter = filter;
 	}

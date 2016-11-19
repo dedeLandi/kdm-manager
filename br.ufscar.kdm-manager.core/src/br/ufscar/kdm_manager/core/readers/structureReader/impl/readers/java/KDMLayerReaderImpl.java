@@ -33,7 +33,7 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.SoftwareSystem;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Subsystem;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.structureReader.interfaces.KDMStructureGenericReader;
 
@@ -42,13 +42,13 @@ public class KDMLayerReaderImpl implements KDMStructureGenericReader<Layer>{
 	private boolean hasNoFilter = true;
 	private boolean hasFilter = false;
 
-	private ValidateFilter<Layer, ?> filter = null;
+	private KDMValidateFilter<Layer, ?> filter = null;
 
 	public KDMLayerReaderImpl() {
 		super();
 	}
 
-	public KDMLayerReaderImpl(ValidateFilter<Layer, ?> filter) {
+	public KDMLayerReaderImpl(KDMValidateFilter<Layer, ?> filter) {
 		this.hasNoFilter = false;
 		this.hasFilter  = true;
 		this.filter = filter;

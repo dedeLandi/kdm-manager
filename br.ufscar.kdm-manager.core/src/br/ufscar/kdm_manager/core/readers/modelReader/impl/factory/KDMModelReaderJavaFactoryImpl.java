@@ -31,7 +31,7 @@ import org.eclipse.gmt.modisco.omg.kdm.kdm.KDMModel;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.factory.KDMModelReaderJavaFactory;
 import br.ufscar.kdm_manager.core.readers.modelReader.impl.readers.java.KDMCodeModelReaderImpl;
 import br.ufscar.kdm_manager.core.readers.modelReader.impl.readers.java.KDMKDMModelReaderImpl;
@@ -117,7 +117,7 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> createKDMModelReaderWithFilter(ValidateFilter filter) {
+	public KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> createKDMModelReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMKDMModelReaderImpl(filter);
 	}
 
@@ -129,7 +129,7 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> createKDMCodeModelReaderWithFilter(ValidateFilter filter) {
+	public KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> createKDMCodeModelReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMCodeModelReaderImpl(filter);
 	}
 
@@ -165,7 +165,7 @@ public class KDMModelReaderJavaFactoryImpl extends EFactoryImpl implements KDMMo
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> createKDMStructureModelReaderWithFilter(ValidateFilter filter) {
+	public KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> createKDMStructureModelReaderWithFilter(KDMValidateFilter filter) {
 		return new KDMStructureModelReaderImpl(filter);
 	}
 

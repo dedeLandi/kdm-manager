@@ -31,9 +31,9 @@ import org.eclipse.gmt.modisco.omg.kdm.source.InventoryModel;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 import org.eclipse.gmt.modisco.omg.kdm.ui.UIModel;
 
-import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.IKDMModelType;
+import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.KDMIModelType;
 
-public enum KDMModelType implements IKDMModelType<KDMModel,KDMModel>{
+public enum KDMModelType implements KDMIModelType<KDMModel,KDMModel>{
 
 	BUILD_MODEL ("BuildModel"){
 		public BuildModel convertModelByType(KDMModel kdmModel) {

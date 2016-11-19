@@ -29,7 +29,7 @@ import org.eclipse.gmt.modisco.omg.kdm.code.CodeModel;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.KDMModel;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.KDMModelGenericReader;
 
 public class KDMCodeModelReaderImpl implements KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> {
@@ -37,13 +37,13 @@ public class KDMCodeModelReaderImpl implements KDMModelGenericReader<Map<String,
 	private boolean hasNoFilter = true;
 	private boolean hasFilter = false;
 
-	private ValidateFilter<CodeModel, ?> filter = null;
+	private KDMValidateFilter<CodeModel, ?> filter = null;
 
 	public KDMCodeModelReaderImpl() {
 		super();
 	}
 
-	public KDMCodeModelReaderImpl(ValidateFilter<CodeModel, ?> filter) {
+	public KDMCodeModelReaderImpl(KDMValidateFilter<CodeModel, ?> filter) {
 		this.hasNoFilter = false;
 		this.hasFilter  = true;
 		this.filter = filter;

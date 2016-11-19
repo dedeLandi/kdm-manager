@@ -28,7 +28,7 @@ import org.eclipse.gmt.modisco.omg.kdm.structure.Layer;
 import org.eclipse.gmt.modisco.omg.kdm.structure.SoftwareSystem;
 import org.eclipse.gmt.modisco.omg.kdm.structure.Subsystem;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.structureReader.interfaces.KDMStructureGenericReader;
 
 
@@ -48,15 +48,15 @@ public interface KDMStructureReaderJavaFactory extends EFactory {
 	
 	KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReader();
 	
-	KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMStructureGenericReader<Layer> createKDMLayerReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMStructureGenericReader<Component> createKDMComponentReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMStructureGenericReader<Subsystem> createKDMSubsystemReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMStructureGenericReader<ArchitectureView> createKDMArchitectureViewReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMStructureGenericReader<SoftwareSystem> createKDMSoftwareSystemReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
-	KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMStructureGenericReader<AggregatedRelationship> createKDMAggregatedRelationshipReaderWithFilter(KDMValidateFilter<?, ?> filter);
 }

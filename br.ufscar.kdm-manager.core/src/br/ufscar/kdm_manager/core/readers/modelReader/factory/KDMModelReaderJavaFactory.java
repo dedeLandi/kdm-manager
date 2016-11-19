@@ -29,7 +29,7 @@ import org.eclipse.gmt.modisco.omg.kdm.kdm.KDMModel;
 import org.eclipse.gmt.modisco.omg.kdm.kdm.Segment;
 import org.eclipse.gmt.modisco.omg.kdm.structure.StructureModel;
 
-import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.ValidateFilter;
+import br.ufscar.kdm_manager.core.filters.validateFilter.interfaces.KDMValidateFilter;
 import br.ufscar.kdm_manager.core.readers.modelReader.interfaces.KDMModelGenericReader;
 
 
@@ -57,11 +57,11 @@ public interface KDMModelReaderJavaFactory extends EFactory {
 	
 //	KDMModelGenericReader<UIModel,Segment> createKDMUIModelReader();
 	
-	KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> createKDMModelReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMModelGenericReader<Map<String, List<KDMModel>>,Segment> createKDMModelReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
 //	KDMModelGenericReader<BuildModel,Segment> createKDMBuildModelReaderWithFilter(String nameToSearch);
 	
-	KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> createKDMCodeModelReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMModelGenericReader<Map<String, List<CodeModel>>,Segment> createKDMCodeModelReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
 //	KDMModelGenericReader<ConceptualModel,Segment> createKDMConceptualModelReaderWithFilter(String nameToSearch);
 	
@@ -73,7 +73,7 @@ public interface KDMModelReaderJavaFactory extends EFactory {
 	
 //	KDMModelGenericReader<PlatformModel,Segment> createKDMPlatformModelReaderWithFilter(String nameToSearch);
 
-	KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> createKDMStructureModelReaderWithFilter(ValidateFilter<?, ?> filter);
+	KDMModelGenericReader<Map<String, List<StructureModel>>,Segment> createKDMStructureModelReaderWithFilter(KDMValidateFilter<?, ?> filter);
 	
 //	KDMModelGenericReader<UIModel,Segment> createKDMUIModelReaderWithFilter(String nameToSearch);
 	
