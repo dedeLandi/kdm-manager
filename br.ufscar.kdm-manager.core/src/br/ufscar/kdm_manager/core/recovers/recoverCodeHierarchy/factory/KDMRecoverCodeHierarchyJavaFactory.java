@@ -23,12 +23,13 @@ package br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.factory;
 import org.eclipse.gmt.modisco.omg.kdm.structure.AbstractStructureElement;
 
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericCodeHierarchy;
+import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericRelationshipHierarchy;
 
 public interface KDMRecoverCodeHierarchyJavaFactory {
 
 	KDMRecoverCodeHierarchyJavaFactory eINSTANCE = br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.factory.KDMRecoverCodeHierarchyJavaFactoryImpl.init();
 	
-	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyComplete();
+	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyComplete(boolean withHashCode);
 	
 	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyFirstEntity();
 	
@@ -39,6 +40,8 @@ public interface KDMRecoverCodeHierarchyJavaFactory {
 	KDMRecoverGenericCodeHierarchy<AbstractStructureElement> createRecoverCodeStructureHierarchyFirstArchitecturalElement();
 
 	KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyModel();
+	
+	KDMRecoverGenericRelationshipHierarchy<String> createRecoverRelationshipHierarchyComplete();
 	
 	
 }
