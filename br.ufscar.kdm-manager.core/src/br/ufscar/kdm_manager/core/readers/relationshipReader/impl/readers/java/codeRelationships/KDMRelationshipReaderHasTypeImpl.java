@@ -134,6 +134,10 @@ public class KDMRelationshipReaderHasTypeImpl implements KDMRelationshipGenericR
 				hasTypeRecovered.addAll(this.getAllRelationshipOf((EnumeratedType) codeItem));
 			}else if(codeItem instanceof ClassUnit){
 				hasTypeRecovered.addAll(this.getAllRelationshipOf((ClassUnit) codeItem));
+			}else if(codeItem instanceof MethodUnit){
+				hasTypeRecovered.addAll(this.getAllRelationshipOf((MethodUnit) codeItem));
+			}else if(codeItem instanceof StorableUnit){
+				hasTypeRecovered.addAll(this.getAllRelationshipOf((StorableUnit) codeItem));
 			}
 		}
 
@@ -161,7 +165,12 @@ public class KDMRelationshipReaderHasTypeImpl implements KDMRelationshipGenericR
 				hasTypeRecovered.addAll(this.getAllRelationshipOf((EnumeratedType) codeItem));
 			}else if(codeItem instanceof ClassUnit){
 				hasTypeRecovered.addAll(this.getAllRelationshipOf((ClassUnit) codeItem));
+			}else if(codeItem instanceof MethodUnit){
+				hasTypeRecovered.addAll(this.getAllRelationshipOf((MethodUnit) codeItem));
+			}else if(codeItem instanceof StorableUnit){
+				hasTypeRecovered.addAll(this.getAllRelationshipOf((StorableUnit) codeItem));
 			}
+			
 		}
 
 		return hasTypeRecovered;
@@ -187,6 +196,10 @@ public class KDMRelationshipReaderHasTypeImpl implements KDMRelationshipGenericR
 				hasTypeRecovered.addAll(this.getAllRelationshipOf((EnumeratedType) codeItem));
 			}else if(codeItem instanceof ClassUnit){
 				hasTypeRecovered.addAll(this.getAllRelationshipOf((ClassUnit) codeItem));
+			}else if(codeItem instanceof MethodUnit){
+				hasTypeRecovered.addAll(this.getAllRelationshipOf((MethodUnit) codeItem));
+			}else if(codeItem instanceof StorableUnit){
+				hasTypeRecovered.addAll(this.getAllRelationshipOf((StorableUnit) codeItem));
 			}
 		}
 
