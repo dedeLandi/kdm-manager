@@ -39,9 +39,17 @@ import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRe
 
 public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCodeHierarchy<String> {
 
+	private boolean withHashCode = false;
+	
+	public KDMRecoverCodeHierarchyCompleteImpl(boolean withHashCode) {
+		this.withHashCode = withHashCode;
+	}
 	
 	private String getHierarchyOf(Segment segmentToAvaliate) {
 		String nameObject = segmentToAvaliate.getName() == null ? "anonymous" : segmentToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(segmentToAvaliate.hashCode()));
+		}
 		return (SEPARATOR_CLASS_TYPE.replace("?", segmentToAvaliate.eClass().getName())).concat(nameObject);
 	}
 	
@@ -55,6 +63,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = modelToAvaliate.getName() == null ? "anonymous" : modelToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(modelToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", modelToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -71,6 +82,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = packageToAvaliate.getName() == null ? "anonymous" : packageToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(packageToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", packageToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -93,6 +107,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = classToAvaliate.getName() == null ? "anonymous" : classToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(classToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", classToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -115,6 +132,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = interfaceToAvaliate.getName() == null ? "anonymous" : interfaceToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(interfaceToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", interfaceToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -137,6 +157,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = enumeratedTypeToAvaliate.getName() == null ? "anonymous" : enumeratedTypeToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(enumeratedTypeToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", enumeratedTypeToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -165,6 +188,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = storableToAvaliate.getName() == null ? "anonymous" : storableToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(storableToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", storableToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -183,6 +209,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = methodToAvaliate.getName() == null ? "anonymous" : methodToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(methodToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", methodToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -197,6 +226,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = signatureToAvaliate.getName() == null ? "anonymous" : signatureToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(signatureToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", signatureToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -211,6 +243,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = parameterToAvaliate.getName() == null ? "anonymous" : parameterToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(parameterToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", parameterToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -233,6 +268,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = blockToAvaliate.getName() == null ? "anonymous" : blockToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(blockToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", blockToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
@@ -253,6 +291,9 @@ public class KDMRecoverCodeHierarchyCompleteImpl implements KDMRecoverGenericCod
 		}
 		
 		String nameObject = actionElementToAvaliate.getName() == null ? "anonymous" : actionElementToAvaliate.getName();
+		if(withHashCode){
+			nameObject = (nameObject.concat(SEPARATOR_HASH_CODE)).concat(Integer.toString(actionElementToAvaliate.hashCode()));
+		}
 		String nameThisObjectIteration = (SEPARATOR_CLASS_TYPE.replace("?", actionElementToAvaliate.eClass().getName())).concat(nameObject);
 		
 		return (completePath.concat(SEPARATOR_TYPE)).concat(nameThisObjectIteration);
