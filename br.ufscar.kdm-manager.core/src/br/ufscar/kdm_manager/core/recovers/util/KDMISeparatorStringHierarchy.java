@@ -29,5 +29,6 @@ public interface KDMISeparatorStringHierarchy {
 	public static final String SEPARATOR_TYPE = ".";
 	public static final String SEPARATOR_CLASS_TYPE = "[?]";
 	public static final String SEPARATOR_IMPLEMENT_TYPE = "{?}";
+	public static final String SEPARATOR_HASH_CODE = "-";
 	
 }
