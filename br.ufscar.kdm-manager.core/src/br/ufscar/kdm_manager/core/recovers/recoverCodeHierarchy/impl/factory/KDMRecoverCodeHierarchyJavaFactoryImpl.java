@@ -31,7 +31,9 @@ import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.recovers.ja
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.recovers.java.KDMRecoverCodeHierarchyModelImpl;
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.recovers.java.KDMRecoverCodeStructureHierarchyCompleteImpl;
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.recovers.java.KDMRecoverCodeStructureHierarchyFirstArchitecturalElementImpl;
+import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.recovers.java.KDMRecoverRelationshipHierarchyCompleteImpl;
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericCodeHierarchy;
+import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericRelationshipHierarchy;
 
 public class KDMRecoverCodeHierarchyJavaFactoryImpl implements KDMRecoverCodeHierarchyJavaFactory{
 
@@ -53,8 +55,8 @@ public class KDMRecoverCodeHierarchyJavaFactoryImpl implements KDMRecoverCodeHie
 	}
 
 	@Override
-	public KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyComplete() {
-		return new KDMRecoverCodeHierarchyCompleteImpl();
+	public KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyComplete(boolean withHashCode) {
+		return new KDMRecoverCodeHierarchyCompleteImpl(withHashCode);
 	}
 
 	@Override
@@ -80,6 +82,15 @@ public class KDMRecoverCodeHierarchyJavaFactoryImpl implements KDMRecoverCodeHie
 	@Override
 	public KDMRecoverGenericCodeHierarchy<String> createRecoverCodeHierarchyModel() {
 		return new KDMRecoverCodeHierarchyModelImpl();
+	}
+
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.factory.KDMRecoverCodeHierarchyJavaFactory#createRecoverRelationshipHierarchyComplete()
+	 */
+	@Override
+	public KDMRecoverGenericRelationshipHierarchy<String> createRecoverRelationshipHierarchyComplete() {
+		return new KDMRecoverRelationshipHierarchyCompleteImpl();
+
 	}
 	
 	
