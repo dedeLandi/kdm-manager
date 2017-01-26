@@ -26,7 +26,9 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.runtime;version="3.5.0",
  org.eclipse.ui
-Export-Package: br.ufscar.kdm_manager.core.exceptions,
+Export-Package: br.ufscar.kdm_manager.core.complements.complementRelationship.factory,
+ br.ufscar.kdm_manager.core.complements.complementRelationship.interfaces,
+ br.ufscar.kdm_manager.core.exceptions,
  br.ufscar.kdm_manager.core.filters.validateFilter.factory,
  br.ufscar.kdm_manager.core.filters.validateFilter.interfaces,
  br.ufscar.kdm_manager.core.loads.factory,
