@@ -1,0 +1,30 @@
+-- @nsURI KDM=http://www.eclipse.org/MoDisco/kdm/code
+-- @nsURI PAR=platform:/resource/ExampleATL/ATL/TESTE4/Parameters.ecore
+
+module teste4;
+
+create OUT : KDM 
+refining IN : KDM, IN2 : PAR;
+
+--uses XMLHelpers;
+
+rule changeName{
+	from
+		classOld: KDM!ClassUnit
+	to
+		newClass: KDM!ClassUnit(
+			name <- classOld.name + thisModule.getParameter('teste4', 'sufixoNameClass') 
+		)	
+}
+
+helper def : getParameter(parameter : String, param : String) : String =
+	PAR!Parameter.allInstances().debug() ->
+		select(e | e.name = parameter).first().param ->
+			select(e | e.name = param) -> first().value;
+
+--helper def : getParameter(name : String) : String =
+--	XML!Element.allInstancesFrom('parameters')->select(e |
+--		e.name = 'param'
+--	)->select(e |
+--		e.getAttrVal('name') = name
+--	)->first().getAttrVal('value');

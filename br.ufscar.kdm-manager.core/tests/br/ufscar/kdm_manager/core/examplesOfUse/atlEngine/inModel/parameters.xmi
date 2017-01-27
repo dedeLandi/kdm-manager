@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Parameters:Parameter
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:Parameters="platform:/resource/ExampleATL/ATL/TESTE4/Parameters.ecore"
+    name="teste4">
+  <param
+      name="sufixoNameClass"
+      value="Teste1"/>
+  <param
+      name="sufixoNameClass2"
+      value="Teste2"/>
+</Parameters:Parameter>

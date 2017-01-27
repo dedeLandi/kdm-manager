@@ -18,7 +18,7 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.examplesOfUse;
+package br.ufscar.kdm_manager.core.examplesOfUse.recoverHierarchy;
 
 import java.util.List;
 
