@@ -1,0 +1,44 @@
+@relation clusterizingDrifts
+
+@attribute Calls_681094281 numeric
+@attribute Calls_1748876332 numeric
+@attribute Calls_1747352992 numeric
+@attribute Calls_40075281 numeric
+@attribute Creates_1878169648 numeric
+@attribute Creates_1781241150 numeric
+@attribute HasType_825962150 numeric
+@attribute HasType_793138072 numeric
+@attribute Calls_1418620248 numeric
+@attribute Imports_1648001170 numeric
+
+@data
+% NameInstance:Calls_681094281 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]view-565372776.[ClassUnit]VisualizarPessoas-1462044018.[MethodUnit]preencherDados-1443435931.[BlockUnit]anonymous-555273695.[ActionElement]variable declaration-396883763.[ActionElement]class instance creation-1750498848.[Calls]anonymous 
+0.0,0.1571125265392781,0.12037037037037035,0.18518518518518523,0.009216589861751112,0.125,0.08564814814814814,0.17361111111111116,0.21759259259259256,0.4375
+% NameInstance:Calls_1748876332 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]view-565372776.[ClassUnit]VisualizarPessoas-1462044018.[MethodUnit]preencherDados-1443435931.[BlockUnit]anonymous-555273695.[ActionElement]expression statement-2089016471.[ActionElement]method invocation-2001223946.[ActionElement]method invocation-1946645411.[Calls]anonymous 
+0.1571125265392781,0.0,0.24416135881104029,0.1995753715498938,0.16135881104033967,0.24840764331210186,0.18895966029723987,0.2696390658174098,0.23354564755838636,0.4819532908704883
+% NameInstance:Calls_1747352992 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]view-565372776.[ClassUnit]CadastrarPessoa-938545229.[MethodUnit]cadastrar-1433666880.[BlockUnit]anonymous-1610702581.[ActionElement]variable declaration-794075965.[ActionElement]class instance creation-270056930.[Calls]anonymous 
+0.12037037037037035,0.24416135881104029,0.0,0.09198113207547165,0.12903225806451613,0.009389671361502372,0.1721698113207547,0.08018867924528306,0.19811320754716977,0.42452830188679247
+% NameInstance:Calls_40075281 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]view-565372776.[ClassUnit]CadastrarPessoa-938545229.[MethodUnit]cadastrar-1433666880.[BlockUnit]anonymous-1610702581.[ActionElement]expression statement-1706292388.[ActionElement]method invocation-254801937.[Calls]anonymous 
+0.18518518518518523,0.1995753715498938,0.09198113207547165,0.0,0.19354838709677424,0.10093896713615025,0.19809069212410502,0.12529550827423164,0.13126491646778038,0.41766109785202865
+% NameInstance:Creates_1878169648 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]view-565372776.[ClassUnit]VisualizarPessoas-1462044018.[MethodUnit]preencherDados-1443435931.[BlockUnit]anonymous-555273695.[ActionElement]variable declaration-396883763.[ActionElement]class instance creation-1750498848.[Creates]anonymous 
+0.009216589861751112,0.16135881104033967,0.12903225806451613,0.19354838709677424,0.0,0.11981566820276501,0.08986175115207373,0.17741935483870963,0.22580645161290325,0.4377880184331797
+% NameInstance:Creates_1781241150 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]view-565372776.[ClassUnit]CadastrarPessoa-938545229.[MethodUnit]cadastrar-1433666880.[BlockUnit]anonymous-1610702581.[ActionElement]variable declaration-794075965.[ActionElement]class instance creation-270056930.[Creates]anonymous 
+0.125,0.24840764331210186,0.009389671361502372,0.10093896713615025,0.11981566820276501,0.0,0.176056338028169,0.08450704225352113,0.20657276995305163,0.42488262910798125
+% NameInstance:HasType_825962150 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]view-565372776.[ClassUnit]VisualizarPessoas-1462044018.[MethodUnit]preencherDados-1443435931.[BlockUnit]anonymous-555273695.[ActionElement]variable declaration-396883763.[StorableUnit]novaPessoa-90767234.[HasType]anonymous 
+0.08564814814814814,0.18895966029723987,0.1721698113207547,0.19809069212410502,0.08986175115207373,0.176056338028169,0.0,0.13238770685579193,0.2272727272727273,0.41866028708133973
+% NameInstance:HasType_793138072 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]view-565372776.[ClassUnit]CadastrarPessoa-938545229.[MethodUnit]cadastrar-1433666880.[BlockUnit]anonymous-1610702581.[ActionElement]variable declaration-794075965.[StorableUnit]novaPessoaCadastrada-1355457888.[HasType]anonymous 
+0.17361111111111116,0.2696390658174098,0.08018867924528306,0.12529550827423164,0.17741935483870963,0.08450704225352113,0.13238770685579193,0.0,0.23404255319148937,0.42316784869976354
+% NameInstance:Calls_1418620248 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]model-707161353.[ClassUnit]Pessoa-1522132780.[MethodUnit]Pessoa-409962262.[BlockUnit]anonymous-495702238.[ActionElement]expression statement-73181251.[ActionElement]method invocation-298430307.[Calls]anonymous 
+0.21759259259259256,0.23354564755838636,0.19811320754716977,0.13126491646778038,0.22580645161290325,0.20657276995305163,0.2272727272727273,0.23404255319148937,0.0,0.36543209876543215
+% NameInstance:Imports_1648001170 
+% PathInstance:[Segment]anonymous-169663597.[CodeModel]SystemExampleMVC-SimplesComDesvios-391877669.[Package]br-815320891.[Package]ufscar-101775274.[Package]systemExampleMVC_SimplesComDesvio-1778629809.[Package]model-707161353.[ClassUnit]Pessoa-1522132780.[Imports]anonymous 
+0.4375,0.4819532908704883,0.42452830188679247,0.41766109785202865,0.4377880184331797,0.42488262910798125,0.41866028708133973,0.42316784869976354,0.36543209876543215,0.0
