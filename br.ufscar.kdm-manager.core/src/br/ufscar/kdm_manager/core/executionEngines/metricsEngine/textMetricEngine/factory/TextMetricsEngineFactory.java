@@ -23,7 +23,6 @@ package br.ufscar.kdm_manager.core.executionEngines.metricsEngine.textMetricEngi
 import org.eclipse.emf.ecore.EFactory;
 
 import br.ufscar.kdm_manager.core.executionEngines.metricsEngine.textMetricEngine.interfaces.TextMestricEngine;
-import info.debatty.java.stringsimilarity.MetricLCS;
 
 /**
  * @author Landi
@@ -33,6 +32,6 @@ public interface TextMetricsEngineFactory extends EFactory {
 
 	TextMetricsEngineFactory eINSTANCE = br.ufscar.kdm_manager.core.executionEngines.metricsEngine.textMetricEngine.impl.factory.TextMetricsEngineFactoryImpl.init();
 		
-	TextMestricEngine<MetricLCS, Double> createTextMetricLongestCommonSubsequence();
+	TextMestricEngine<?, ?> createTextMetricLongestCommonSubsequence();
 	
 }
