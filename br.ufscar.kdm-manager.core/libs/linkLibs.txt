@@ -1,0 +1,8 @@
+Link da lib de similaridade de strings
+
+https://github.com/tdebatty/java-string-similarity
+
+
+Java machine learning
+
+http://java-ml.sourceforge.net/content/cluster-evaluation
