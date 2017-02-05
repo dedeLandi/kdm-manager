@@ -27,7 +27,7 @@ import info.debatty.java.stringsimilarity.MetricLCS;
  * @author Landi
  *
  */
-public class TextMetricLCSbyThibaultDebatty implements TextMestricEngine<MetricLCS, Double>{
+public class TextMetricLCSbyThibaultDebatty implements TextMestricEngine<Object, Double>{
 
 	private MetricLCS metricLCS = null;
 	
