@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import br.ufscar.kdm_manager.core.executionEngines.metricsEngine.textMetricEngine.factory.TextMetricsEngineFactory;
 import br.ufscar.kdm_manager.core.executionEngines.metricsEngine.textMetricEngine.impl.textMetricEngine.TextMetricLCSbyThibaultDebatty;
 import br.ufscar.kdm_manager.core.executionEngines.metricsEngine.textMetricEngine.interfaces.TextMestricEngine;
-import info.debatty.java.stringsimilarity.MetricLCS;
 
 /**
  * @author Landi
@@ -52,7 +51,7 @@ public class TextMetricsEngineFactoryImpl extends EFactoryImpl implements TextMe
 	 * @see br.ufscar.kdm_manager.core.executionEngines.metricsEngine.textMetricEngine.factory.TextMetricsEngineFactory#createTextMetricLongestCommonSubsequence()
 	 */
 	@Override
-	public TextMestricEngine<MetricLCS, Double> createTextMetricLongestCommonSubsequence() {
+	public TextMestricEngine<?, ?> createTextMetricLongestCommonSubsequence() {
 		TextMetricLCSbyThibaultDebatty metric = new TextMetricLCSbyThibaultDebatty();
 		return metric;
 	}
