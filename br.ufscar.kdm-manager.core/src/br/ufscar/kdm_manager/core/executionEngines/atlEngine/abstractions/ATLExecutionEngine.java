@@ -20,6 +20,8 @@
   *******************************************************************************/
 package br.ufscar.kdm_manager.core.executionEngines.atlEngine.abstractions;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
@@ -60,7 +62,18 @@ public abstract class ATLExecutionEngine<T,R> {
 		final ExtendedMetaData extendedMetaData = new BasicExtendedMetaData(EPackage.Registry.INSTANCE);
 		rs.getLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, extendedMetaData);
 
-		Resource r = rs.getResource(URI.createFileURI(completeEcorePath), true);
+		URI uri = null;
+		if(completeEcorePath.contains("http")){
+			try {
+				uri = URI.createURI(new URL(completeEcorePath).toString());
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			uri = URI.createFileURI(completeEcorePath);
+		}
+		Resource r = rs.getResource(uri, true);
 		EObject eObject = r.getContents().get(0);
 		// A meta-model might have multiple packages we assume the main package is the first one listed
 		if (eObject instanceof EPackage) {
