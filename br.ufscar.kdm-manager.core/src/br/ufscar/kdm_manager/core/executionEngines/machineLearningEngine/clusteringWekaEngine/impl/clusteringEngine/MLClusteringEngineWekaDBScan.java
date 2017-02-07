@@ -37,7 +37,7 @@ import weka.gui.visualize.PlotData2D;
  * @author Landi
  *
  */
-public class MLClusteringEngineWekaDBScan implements MLClusteringWekaEngine<DBSCAN> {
+public class MLClusteringEngineWekaDBScan implements MLClusteringWekaEngine<Object> {
 
 	private boolean canRun = false;
 	private String arffPath = null;
@@ -50,7 +50,7 @@ public class MLClusteringEngineWekaDBScan implements MLClusteringWekaEngine<DBSC
 	 * @see br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.interfaces.MLClusteringWekaEngine#setDataToClustering(java.lang.String)
 	 */
 	@Override
-	public MLClusteringWekaEngine<DBSCAN> setDataToClustering(String arffPath) {
+	public MLClusteringWekaEngine<Object> setDataToClustering(String arffPath) {
 		canRun = false;
 		this.arffPath  = arffPath;
 		return this;
@@ -60,9 +60,9 @@ public class MLClusteringEngineWekaDBScan implements MLClusteringWekaEngine<DBSC
 	 * @see br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.interfaces.MLClusteringWekaEngine#setDataToClustering(weka.core.Instances)
 	 */
 	@Override
-	public MLClusteringWekaEngine<DBSCAN> setDataToClustering(Instances data) {
+	public MLClusteringWekaEngine<Object> setDataToClustering(Object data) {
 		canRun = false;
-		this.data  = data;
+		this.data  = (Instances) data;
 		return this;
 	}
 
@@ -70,7 +70,7 @@ public class MLClusteringEngineWekaDBScan implements MLClusteringWekaEngine<DBSC
 	 * @see br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.interfaces.MLClusteringWekaEngine#setAlgorithmOptions(java.lang.String)
 	 */
 	@Override
-	public MLClusteringWekaEngine<DBSCAN> setAlgorithmOptions(String options) {
+	public MLClusteringWekaEngine<Object> setAlgorithmOptions(String options) {
 		canRun = false;
 		this.options  = options;
 		return this;
@@ -80,7 +80,7 @@ public class MLClusteringEngineWekaDBScan implements MLClusteringWekaEngine<DBSC
 	 * @see br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.interfaces.MLClusteringWekaEngine#configureCluster()
 	 */
 	@Override
-	public MLClusteringWekaEngine<DBSCAN> configureCluster() {
+	public MLClusteringWekaEngine<Object> configureCluster() {
 		canRun = false;
 		try {
 
