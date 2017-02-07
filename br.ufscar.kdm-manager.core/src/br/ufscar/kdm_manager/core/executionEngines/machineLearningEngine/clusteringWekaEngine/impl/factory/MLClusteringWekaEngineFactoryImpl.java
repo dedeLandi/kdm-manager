@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.factory.MLClusteringWekaEngineFactory;
 import br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.impl.clusteringEngine.MLClusteringEngineWekaDBScan;
 import br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.interfaces.MLClusteringWekaEngine;
-import weka.clusterers.DBSCAN;
 
 /**
  * @author Landi
@@ -52,7 +51,7 @@ public class MLClusteringWekaEngineFactoryImpl extends EFactoryImpl implements M
 	 * @see br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.factory.MLClusteringWekaEngineFactory#createMLClusteringEngineWekaDBScan()
 	 */
 	@Override
-	public MLClusteringWekaEngine<DBSCAN> createMLClusteringEngineWekaDBScan() {
+	public MLClusteringWekaEngine<Object> createMLClusteringEngineWekaDBScan() {
 		MLClusteringEngineWekaDBScan dbscan = new MLClusteringEngineWekaDBScan();
 		return dbscan;
 	}
