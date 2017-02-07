@@ -22,7 +22,6 @@ package br.ufscar.kdm_manager.core.examplesOfUse.MLClusteringEngine.java;
 
 import br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.factory.MLClusteringWekaEngineFactory;
 import br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.interfaces.MLClusteringWekaEngine;
-import weka.clusterers.DBSCAN;
 
 /**
  * @author Landi
@@ -32,7 +31,7 @@ public class ExampleOfUseDBScan {
 
 	public static void main(String[] args) {
 		
-		MLClusteringWekaEngine<DBSCAN> dbscan = MLClusteringWekaEngineFactory.eINSTANCE.createMLClusteringEngineWekaDBScan();
+		MLClusteringWekaEngine<?> dbscan = MLClusteringWekaEngineFactory.eINSTANCE.createMLClusteringEngineWekaDBScan();
 		
 		String arffPath = "C:\\Java\\workspaceMestradoMars64\\kdm-manager\\br.ufscar.kdm-manager.core\\tests\\br\\ufscar\\kdm_manager\\core\\examplesOfUse\\MLClusteringEngine\\inputs\\entradaWeka.arff";
 		String options = "" 
