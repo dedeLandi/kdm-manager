@@ -20,9 +20,6 @@
   *******************************************************************************/
 package br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.interfaces;
 
-import weka.clusterers.ClusterEvaluation;
-import weka.core.Instances;
-
 /**
  * @author Landi
  *
@@ -31,13 +28,13 @@ public interface MLClusteringWekaEngine<T> {
 
 	public MLClusteringWekaEngine<T> setDataToClustering(String arffPath);
 	
-	public MLClusteringWekaEngine<T> setDataToClustering(Instances data);
+	public MLClusteringWekaEngine<T> setDataToClustering(Object data);
 	
 	public MLClusteringWekaEngine<T> setAlgorithmOptions(String options);
 	
 	public MLClusteringWekaEngine<T> configureCluster();
 	
-	public ClusterEvaluation clusterizingData();
+	public Object clusterizingData();
 	
 	public Object clusterResultsToString();
 	

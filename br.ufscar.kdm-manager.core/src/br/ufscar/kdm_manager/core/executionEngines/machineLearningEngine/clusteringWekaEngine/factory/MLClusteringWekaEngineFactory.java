@@ -23,7 +23,6 @@ package br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.cluste
 import org.eclipse.emf.ecore.EFactory;
 
 import br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.interfaces.MLClusteringWekaEngine;
-import weka.clusterers.DBSCAN;
 
 /**
  * @author Landi
@@ -33,6 +32,6 @@ public interface MLClusteringWekaEngineFactory extends EFactory {
 
 	MLClusteringWekaEngineFactory eINSTANCE = br.ufscar.kdm_manager.core.executionEngines.machineLearningEngine.clusteringWekaEngine.impl.factory.MLClusteringWekaEngineFactoryImpl.init();
 		
-	MLClusteringWekaEngine<DBSCAN> createMLClusteringEngineWekaDBScan();
+	MLClusteringWekaEngine<Object> createMLClusteringEngineWekaDBScan();
 	
 }
