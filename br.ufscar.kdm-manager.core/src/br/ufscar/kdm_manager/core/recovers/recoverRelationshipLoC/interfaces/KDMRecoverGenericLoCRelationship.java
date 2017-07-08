@@ -18,16 +18,19 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.readers.relationshipReader.interfaces;
+package br.ufscar.kdm_manager.core.recovers.recoverRelationshipLoC.interfaces;
+
+import java.util.List;
 
 /**
  * @author Landi
  *
  */
-public interface KDMITypeRelations {
+public interface KDMRecoverGenericLoCRelationship<T> {
 
-	KDMRelationshipGenericReader<?> getReader();
+	String getLoCPatternFromRelationship(T relationship);
 	
-	String getPatternLoC();
+	String getLoCPatternFromRelationships(List<T> relationships);
+	
 	
 }

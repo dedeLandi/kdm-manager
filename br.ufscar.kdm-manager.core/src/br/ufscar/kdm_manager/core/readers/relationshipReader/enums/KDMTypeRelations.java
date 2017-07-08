@@ -46,11 +46,19 @@ public enum KDMTypeRelations implements KDMITypeRelations{
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createCallsRecover();
 		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 .(access) #2() | new #2()";
+		}
 	},
 	CREATES		("Creates", 	Creates.class){
 		@Override
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createCreatesRecover();
+		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 = new #2()";
 		}
 	},
 	READS		("Reads", 		Reads.class){
@@ -58,11 +66,19 @@ public enum KDMTypeRelations implements KDMITypeRelations{
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createReadsRecover();
 		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 .(read) #2";
+		}
 	},
 	USES_TYPE	("UsesType", 	UsesType.class){
 		@Override
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createUsesTypeRecover();
+		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 is type of #2";
 		}
 	},
 	WRITES		("Writes", 		Writes.class){
@@ -70,11 +86,19 @@ public enum KDMTypeRelations implements KDMITypeRelations{
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createWritesRecover();
 		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 =(assignment) #2";
+		}
 	},
 	EXTENDS		("Extends", 	Extends.class){
 		@Override
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createExtendsRecover();
+		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 extends #2";
 		}
 	},
 	HAS_TYPE	("HasType", 	HasType.class){
@@ -82,11 +106,19 @@ public enum KDMTypeRelations implements KDMITypeRelations{
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createHasTypeRecover();
 		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 initial value is #2";
+		}
 	},
 	HAS_VALUE	("HasValue", 	HasValue.class){
 		@Override
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createHasValueRecover();
+		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 actual value is  #2";
 		}
 	},
 	IMPLEMENTS	("Implements", 	Implements.class){
@@ -94,11 +126,19 @@ public enum KDMTypeRelations implements KDMITypeRelations{
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createImplementsRecover();
 		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 implements #2";
+		}
 	},
 	IMPORTS		("Imports", 	Imports.class){
 		@Override
 		public KDMRelationshipGenericReader<?> getReader() {
 			return KDMRelationshipReaderJavaFactory.eINSTANCE.createImportsRecover();
+		}
+		@Override
+		public String getPatternLoC() {
+			return "#1 imports #2";
 		}
 	};
 	

@@ -20,9 +20,11 @@
   *******************************************************************************/
 package br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.factory;
 
+import org.eclipse.emf.ecore.EFactory;
+
 import br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.interfaces.KDMRecoverGenericStructureHierarchy;
 
-public interface KDMRecoverStructureHierarchyJavaFactory {
+public interface KDMRecoverStructureHierarchyJavaFactory extends EFactory{
 
 	KDMRecoverStructureHierarchyJavaFactory eINSTANCE = br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.impl.factory.KDMRecoverStructureHierarchyJavaFactoryImpl.init();
 	

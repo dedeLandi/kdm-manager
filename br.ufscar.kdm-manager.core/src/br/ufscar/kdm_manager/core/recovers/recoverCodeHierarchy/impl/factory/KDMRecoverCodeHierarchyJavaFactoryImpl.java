@@ -21,6 +21,7 @@
 package br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.factory;
 
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.gmt.modisco.omg.kdm.structure.AbstractStructureElement;
 
@@ -35,7 +36,7 @@ import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.impl.recovers.ja
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericCodeHierarchy;
 import br.ufscar.kdm_manager.core.recovers.recoverCodeHierarchy.interfaces.KDMRecoverGenericRelationshipHierarchy;
 
-public class KDMRecoverCodeHierarchyJavaFactoryImpl implements KDMRecoverCodeHierarchyJavaFactory{
+public class KDMRecoverCodeHierarchyJavaFactoryImpl extends EFactoryImpl implements KDMRecoverCodeHierarchyJavaFactory{
 
 	public static KDMRecoverCodeHierarchyJavaFactory init() {
 		try {

@@ -18,16 +18,14 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.readers.relationshipReader.interfaces;
+package br.ufscar.kdm_manager.core.readers.codeReader.interfaces;
 
 /**
  * @author Landi
  *
  */
-public interface KDMITypeRelations {
+public interface KDMIActionElementsType {
 
-	KDMRelationshipGenericReader<?> getReader();
-	
 	String getPatternLoC();
 	
 }

@@ -21,6 +21,7 @@
 package br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.impl.factory;
 
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.factory.KDMRecoverStructureHierarchyJavaFactory;
@@ -28,7 +29,7 @@ import br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.impl.recove
 import br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.impl.recovers.java.KDMRecoverStructureHierarchyModelImpl;
 import br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.interfaces.KDMRecoverGenericStructureHierarchy;
 
-public class KDMRecoverStructureHierarchyJavaFactoryImpl implements KDMRecoverStructureHierarchyJavaFactory{
+public class KDMRecoverStructureHierarchyJavaFactoryImpl extends EFactoryImpl implements KDMRecoverStructureHierarchyJavaFactory{
 
 	public static KDMRecoverStructureHierarchyJavaFactory init() {
 		try {

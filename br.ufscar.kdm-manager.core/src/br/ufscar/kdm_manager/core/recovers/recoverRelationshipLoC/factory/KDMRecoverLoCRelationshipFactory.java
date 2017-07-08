@@ -18,16 +18,21 @@
  * along with KDM-MANAGER.  If not, see <http://www.gnu.org/licenses/>.			*
  *																				*
   *******************************************************************************/
-package br.ufscar.kdm_manager.core.readers.relationshipReader.interfaces;
+package br.ufscar.kdm_manager.core.recovers.recoverRelationshipLoC.factory;
+
+import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.gmt.modisco.omg.kdm.core.KDMRelationship;
+
+import br.ufscar.kdm_manager.core.recovers.recoverRelationshipLoC.interfaces.KDMRecoverGenericLoCRelationship;
 
 /**
  * @author Landi
  *
  */
-public interface KDMITypeRelations {
+public interface KDMRecoverLoCRelationshipFactory extends EFactory{
 
-	KDMRelationshipGenericReader<?> getReader();
+	KDMRecoverLoCRelationshipFactory eINSTANCE = br.ufscar.kdm_manager.core.recovers.recoverRelationshipLoC.impl.factory.KDMRecoverLoCRelationshipFactoryImpl.init();
 	
-	String getPatternLoC();
+	KDMRecoverGenericLoCRelationship<KDMRelationship> createRecoverLoCRelationship();
 	
 }
