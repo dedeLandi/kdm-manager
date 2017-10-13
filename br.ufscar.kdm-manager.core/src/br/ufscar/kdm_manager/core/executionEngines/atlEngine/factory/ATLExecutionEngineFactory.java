@@ -35,6 +35,8 @@ public interface ATLExecutionEngineFactory extends EFactory {
 
 	ATLExecutionEngineFactory eINSTANCE = br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.factory.ATLExecutionEngineFactoryImpl.init();
 		
+	ATLExecutionEngine<Map<String, String>, Object[]> createATLExecutionRefiningEngineASMcompiler();
+	
 	ATLExecutionEngine<Map<String, String>, Object[]> createATLExecutionEngineASMcompiler();
 	
 	ATLExecutionEngine<String, Resource> createATLExecutionEngineRefiningEMFTVMcompiler();

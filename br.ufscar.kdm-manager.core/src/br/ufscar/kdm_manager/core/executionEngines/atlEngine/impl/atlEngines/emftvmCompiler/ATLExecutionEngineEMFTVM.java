@@ -52,6 +52,8 @@ import org.eclipse.m2m.atl.emftvm.util.DefaultModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.ModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.TimingData;
 import org.eclipse.uml2.uml.UMLPackage;
+import org.eclipse.uml2.uml.internal.resource.UMLResourceFactoryImpl;
+import org.eclipse.uml2.uml.resource.UMLResource;
 
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.abstractions.ATLExecutionEngine;
 
@@ -145,6 +147,7 @@ public class ATLExecutionEngineEMFTVM extends ATLExecutionEngine<String, Resourc
 			atlConfigured = false;
 			this.env = EmftvmFactory.eINSTANCE.createExecEnv();
 			ResourceSet rs = new ResourceSetImpl();
+			ResourceSet rs2 = new ResourceSetImpl();
 
 			/*
 			 * Load meta-models in the resource set we just created, the idea here is to make the meta-models
@@ -169,6 +172,7 @@ public class ATLExecutionEngineEMFTVM extends ATLExecutionEngine<String, Resourc
 			rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
 			rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("emftvm", new EMFTVMResourceFactoryImpl());
 			rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
+			
 			rs.getPackageRegistry().put("http://www.eclipse.org/MoDisco/kdm/kdm", KdmPackageImpl.eINSTANCE);
 			rs.getPackageRegistry().put("http://www.eclipse.org/MoDisco/kdm/action", ActionPackageImpl.eINSTANCE);
 			rs.getPackageRegistry().put("http://www.eclipse.org/MoDisco/kdm/build", BuildPackageImpl.eINSTANCE);
@@ -181,6 +185,10 @@ public class ATLExecutionEngineEMFTVM extends ATLExecutionEngine<String, Resourc
 			rs.getPackageRegistry().put("http://www.eclipse.org/MoDisco/kdm/source", SourcePackageImpl.eINSTANCE);
 			rs.getPackageRegistry().put("http://www.eclipse.org/MoDisco/kdm/structure", StructurePackageImpl.eINSTANCE);
 			rs.getPackageRegistry().put("http://www.eclipse.org/MoDisco/kdm/ui", UiPackageImpl.eINSTANCE);
+			
+			rs2.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
+			rs2.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, new UMLResourceFactoryImpl());
+			
 
 			// Load models
 			for (String inModelName: modelsInData.keySet()) {
@@ -192,7 +200,7 @@ public class ATLExecutionEngineEMFTVM extends ATLExecutionEngine<String, Resourc
 			for (String outModelName: modelsOutData.keySet()) {
 
 				outModel = EmftvmFactory.eINSTANCE.createModel();
-				outModel.setResource(rs.createResource(URI.createURI(modelsOutData.get(outModelName))));
+				outModel.setResource(rs2.createResource(URI.createURI(modelsOutData.get(outModelName))));
 				env.registerInputModel(outModelName, outModel);
 			}
 

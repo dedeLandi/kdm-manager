@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.abstractions.ATLExecutionEngine;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.factory.ATLExecutionEngineFactory;
+import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emfasmCompiler.ATLExecutionEngineASM;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emfasmCompiler.ATLExecutionEngineRefiningASMVariousMetamodels;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emftvmCompiler.ATLExecutionEngineEMFTVM;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emftvmCompiler.ATLExecutionEngineRefiningEMFTVMUniqueMetamodel;
@@ -56,8 +57,17 @@ public class ATLExecutionEngineFactoryImpl extends EFactoryImpl implements ATLEx
 	 * @see br.ufscar.kdm_manager.core.executionEngines.atlEngine.factory.ATLExecutionEngineFactory#createATLExecutionEngineASMcompiler()
 	 */
 	@Override
-	public ATLExecutionEngine<Map<String, String>, Object[]> createATLExecutionEngineASMcompiler() {
+	public ATLExecutionEngine<Map<String, String>, Object[]> createATLExecutionRefiningEngineASMcompiler() {
 		ATLExecutionEngineRefiningASMVariousMetamodels atlCompiler = new ATLExecutionEngineRefiningASMVariousMetamodels();
+		return atlCompiler;
+	}
+	
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.executionEngines.atlEngine.factory.ATLExecutionEngineFactory#createATLExecutionEngineASMcompiler()
+	 */
+	@Override
+	public ATLExecutionEngine<Map<String, String>, Object[]> createATLExecutionEngineASMcompiler() {
+		ATLExecutionEngineASM atlCompiler = new ATLExecutionEngineASM();
 		return atlCompiler;
 	}
 
