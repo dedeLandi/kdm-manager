@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.abstractions.ATLExecutionEngine;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.factory.ATLExecutionEngineFactory;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emfasmCompiler.ATLExecutionEngineRefiningASMVariousMetamodels;
+import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emftvmCompiler.ATLExecutionEngineEMFTVM;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emftvmCompiler.ATLExecutionEngineRefiningEMFTVMUniqueMetamodel;
 
 /**
@@ -64,8 +65,17 @@ public class ATLExecutionEngineFactoryImpl extends EFactoryImpl implements ATLEx
 	 * @see br.ufscar.kdm_manager.core.executionEngines.atlEngine.factory.ATLExecutionEngineFactory#createATLExecutionEngineEMFTVMcompiler()
 	 */
 	@Override
-	public ATLExecutionEngine<String, Resource> createATLExecutionEngineEMFTVMcompiler() {
+	public ATLExecutionEngine<String, Resource> createATLExecutionEngineRefiningEMFTVMcompiler() {
 		ATLExecutionEngineRefiningEMFTVMUniqueMetamodel atlCompiler = new ATLExecutionEngineRefiningEMFTVMUniqueMetamodel();
+		return atlCompiler;
+	}
+	
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.executionEngines.atlEngine.factory.ATLExecutionEngineFactory#createATLExecutionEngineEMFTVMcompiler()
+	 */
+	@Override
+	public ATLExecutionEngine<String, Resource> createATLExecutionEngineEMFTVMcompiler() {
+		ATLExecutionEngineEMFTVM atlCompiler = new ATLExecutionEngineEMFTVM();
 		return atlCompiler;
 	}
 	
