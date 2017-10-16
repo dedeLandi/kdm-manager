@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmt.modisco.infra.common.core.internal.utils.ModelUtils;
@@ -42,9 +41,6 @@ import org.eclipse.gmt.modisco.omg.kdm.platform.impl.PlatformPackageImpl;
 import org.eclipse.gmt.modisco.omg.kdm.source.impl.SourcePackageImpl;
 import org.eclipse.gmt.modisco.omg.kdm.structure.impl.StructurePackageImpl;
 import org.eclipse.gmt.modisco.omg.kdm.ui.impl.UiPackageImpl;
-import org.eclipse.m2m.atl.core.IModel;
-import org.eclipse.m2m.atl.emftvm.impl.resource.EMFTVMResourceImpl;
-import org.eclipse.modisco.kdm.uml2converter.internal.KdmToUmlConverter;
 import org.eclipse.modisco.util.atl.core.internal.AtlLaunchHelper;
 import org.eclipse.modisco.util.atl.core.internal.AtlLaunchHelper.ModelInfo;
 
@@ -54,6 +50,7 @@ import br.ufscar.kdm_manager.core.executionEngines.atlEngine.abstractions.ATLExe
  * @author André
  *
  */
+@SuppressWarnings("restriction")
 public class ATLExecutionEngineASMModisco extends ATLExecutionEngine<Map<String, String>, Object[]>{
 
 	private boolean atlConfigured = false;
@@ -66,11 +63,6 @@ public class ATLExecutionEngineASMModisco extends ATLExecutionEngine<Map<String,
 	private Map<String, Map<String, String>> modelsInData = null;
 	private Map<String, Map<String, String>> modelsOutData = null;
 	private Map<String, Map<String, String>> transformationModuleData = null;
-	private Map<String, Object> options = null;
-
-
-
-
 
 	/* (non-Javadoc)
 	 * @see br.ufscar.kdm_manager.core.executionEngines.atlEngine.abstractions.ATLExecutionEngine#setMetamodelData(java.util.Map)
@@ -138,14 +130,12 @@ public class ATLExecutionEngineASMModisco extends ATLExecutionEngine<Map<String,
 	@Deprecated
 	public ATLExecutionEngine<Map<String, String>, Object[]> setOptions(Map<String, Object> options) {
 		atlConfigured = false;
-		this.options  = options;
 		return this;
 	}
 
 	/* (non-Javadoc)
 	 * @see br.ufscar.kdm_manager.core.executionEngines.atlEngine.abstractions.ATLExecutionEngine#configureATLEngine()
 	 */
-	@SuppressWarnings("restriction")
 	@Override
 	public ATLExecutionEngine<Map<String, String>, Object[]> configureATLEngine() {
 		inputModels = new ArrayList<ModelInfo>();
@@ -203,7 +193,6 @@ public class ATLExecutionEngineASMModisco extends ATLExecutionEngine<Map<String,
 			
 			atlConfigured = true;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			atlConfigured = false;
 			e.printStackTrace();
 		}
@@ -214,34 +203,35 @@ public class ATLExecutionEngineASMModisco extends ATLExecutionEngine<Map<String,
 	/* (non-Javadoc)
 	 * @see br.ufscar.kdm_manager.core.executionEngines.atlEngine.abstractions.ATLExecutionEngine#launch()
 	 */
-	@SuppressWarnings("restriction")
 	@Override
 	public boolean launch() {
 
-		try {
-
-			AtlLaunchHelper atlHelper = new AtlLaunchHelper();
-			List<Resource> results = atlHelper.runTransformation(transformation, inputModels, outputModels);
-			Resource[] resultsArray = new Resource[results.size()];
-			results.toArray(resultsArray);
-
-			Resource output = resultsArray[0];
-
-			for (String metamodelName : modelsOutData.keySet()) {
-				for (String modelOutName : modelsOutData.get(metamodelName).keySet()) {
-					String outputPath = modelsOutData.get(metamodelName).get(modelOutName);
-					
-					output.setURI(URI.createFileURI(outputPath));
-					output.save(null);
+		if(atlConfigured){
+			try {
+	
+				AtlLaunchHelper atlHelper = new AtlLaunchHelper();
+				List<Resource> results = atlHelper.runTransformation(transformation, inputModels, outputModels);
+				Resource[] resultsArray = new Resource[results.size()];
+				results.toArray(resultsArray);
+	
+				Resource output = resultsArray[0];
+	
+				for (String metamodelName : modelsOutData.keySet()) {
+					for (String modelOutName : modelsOutData.get(metamodelName).keySet()) {
+						String outputPath = modelsOutData.get(metamodelName).get(modelOutName);
+						
+						output.setURI(URI.createFileURI(outputPath));
+						output.save(null);
+					}
 				}
+	
+				return true;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false;
 			}
-
-			return true;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return true;
 		}
-
+		return false;
 
 	}
 
