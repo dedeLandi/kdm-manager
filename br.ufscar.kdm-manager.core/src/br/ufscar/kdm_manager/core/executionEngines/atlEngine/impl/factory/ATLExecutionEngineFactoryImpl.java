@@ -33,6 +33,7 @@ import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emf
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emfasmCompiler.ATLExecutionEngineRefiningASMVariousMetamodels;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emftvmCompiler.ATLExecutionEngineEMFTVM;
 import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.emftvmCompiler.ATLExecutionEngineRefiningEMFTVMUniqueMetamodel;
+import br.ufscar.kdm_manager.core.executionEngines.atlEngine.impl.atlEngines.modiscoAsmCompiler.ATLExecutionEngineASMModisco;
 
 /**
  * @author Landi
@@ -89,5 +90,12 @@ public class ATLExecutionEngineFactoryImpl extends EFactoryImpl implements ATLEx
 		return atlCompiler;
 	}
 	
-	
+	/* (non-Javadoc)
+	 * @see br.ufscar.kdm_manager.core.executionEngines.atlEngine.factory.ATLExecutionEngineFactory#createATLExecutionEngineASMModiscoCompiler()
+	 */
+	@Override
+	public ATLExecutionEngine<Map<String, String>, Object[]> createATLExecutionEngineASMModiscoCompiler() {
+		ATLExecutionEngineASMModisco atlCompiler = new ATLExecutionEngineASMModisco();
+		return atlCompiler;
+	}
 }

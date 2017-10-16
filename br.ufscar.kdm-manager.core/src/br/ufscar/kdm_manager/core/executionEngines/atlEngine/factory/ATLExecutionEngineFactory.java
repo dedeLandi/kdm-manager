@@ -42,4 +42,6 @@ public interface ATLExecutionEngineFactory extends EFactory {
 	ATLExecutionEngine<String, Resource> createATLExecutionEngineRefiningEMFTVMcompiler();
 	
 	ATLExecutionEngine<String, Resource> createATLExecutionEngineEMFTVMcompiler();
+
+	ATLExecutionEngine<Map<String, String>, Object[]> createATLExecutionEngineASMModiscoCompiler();
 }
