@@ -18,9 +18,9 @@ Require-Bundle: org.eclipse.modisco.java.discoverer,
  org.eclipse.m2m.atl.drivers.emf4atl;bundle-version="3.7.0",
  org.eclipse.gmt.modisco.java;bundle-version="0.13.0",
  org.eclipse.modisco.infra.discovery.core;bundle-version="0.13.0",
- org.eclipse.gmt.modisco.kdm.uml2converter;bundle-version="0.13.0",
  org.eclipse.modisco.util.atl.core;bundle-version="0.13.0",
- org.eclipse.gmt.modisco.omg.kdm;bundle-version="0.13.0"
+ org.eclipse.gmt.modisco.omg.kdm;bundle-version="0.13.0",
+ org.eclipse.gmt.modisco.infra.common.core;bundle-version="1.0.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.runtime;version="3.5.0",
