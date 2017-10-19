@@ -53,4 +53,9 @@ Export-Package: br.ufscar.kdm_manager.core.complements.complementRelationship.fa
  br.ufscar.kdm_manager.core.recovers.recoverStructureHierarchy.interfaces,
  br.ufscar.kdm_manager.core.serializes.factory,
  br.ufscar.kdm_manager.core.serializes.interfaces
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ libs/java-string-similarity-0.21-javadoc.jar,
+ libs/java-string-similarity-0.21.jar,
+ libs/javaml-0.1.7.jar,
+ libs/weka-src.jar,
+ libs/weka.jar
