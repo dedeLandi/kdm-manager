@@ -1,6 +1,6 @@
 /********************************************************************************
  *																				*
- * Copyright (c) 2016, André de Souza Landi. All rights reserved.				*
+ * Copyright (c) 2016, Andrï¿½ de Souza Landi. All rights reserved.				*
  *																				*
  * This file is part of KDM-MANAGER software.									*
  *																				*
@@ -26,6 +26,8 @@ import java.util.Map;
 
 import org.eclipse.gmt.modisco.omg.kdm.action.ActionElement;
 import org.eclipse.gmt.modisco.omg.kdm.action.BlockUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.CatchUnit;
+import org.eclipse.gmt.modisco.omg.kdm.action.TryUnit;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeElement;
 import org.eclipse.gmt.modisco.omg.kdm.code.AbstractCodeRelationship;
 import org.eclipse.gmt.modisco.omg.kdm.code.ClassUnit;
@@ -182,40 +184,115 @@ public class KDMRelationshipReaderExtendsImpl implements KDMRelationshipGenericR
 		return extendsRecovered;
 	}
 
-	@Override
-	@Deprecated
-	public List<Extends> getAllRelationshipOf(BlockUnit blockToAvaliate) {
-		return null;
-	}
 
 	@Override
-	@Deprecated
 	public List<Extends> getAllRelationshipOf(StorableUnit storableToAvaliate) {
-		return null;
+		List<Extends> hasTypeRelations = new ArrayList<Extends>();
+
+		for (AbstractCodeRelationship abstractCodeRelationship : storableToAvaliate.getCodeRelation()) {
+
+			if(abstractCodeRelationship instanceof Extends){
+
+				hasTypeRelations.add((Extends) abstractCodeRelationship);
+
+			}
+
+		}
+
+		return hasTypeRelations;
 	}
 
 	@Override
-	@Deprecated
 	public List<Extends> getAllRelationshipOf(MethodUnit methodToAvaliate) {
-		return null;
-	}
+		List<Extends> hasTypeRelations = new ArrayList<Extends>();
 
-	@Override
-	@Deprecated
-	public List<Extends> getAllRelationshipOf(ActionElement actionElementToAvaliate) {
-		return null;
-	}
+		for (AbstractCodeElement abstractCodeElement : methodToAvaliate.getCodeElement()) {
 
+			if(abstractCodeElement instanceof Signature){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((Signature)abstractCodeElement));
+			}else if(abstractCodeElement instanceof BlockUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((BlockUnit)abstractCodeElement));
+			}
+
+		}
+
+		return hasTypeRelations;
+	}
+	
 	@Override
-	@Deprecated
 	public List<Extends> getAllRelationshipOf(Signature signatureToAvaliate) {
-		return null;
+		List<Extends> hasTypeRelations = new ArrayList<Extends>();
+
+		for (ParameterUnit parameterUnit : signatureToAvaliate.getParameterUnit()) {
+
+			hasTypeRelations.addAll(this.getAllRelationshipOf(parameterUnit));
+
+		}
+
+		return hasTypeRelations;
 	}
 
 	@Override
-	@Deprecated
 	public List<Extends> getAllRelationshipOf(ParameterUnit parameterToAvaliate) {
-		return null;
+		List<Extends> hasTypeRelations = new ArrayList<Extends>();
+
+		for (AbstractCodeRelationship abstractCodeRelationship : parameterToAvaliate.getCodeRelation()) {
+
+			if(abstractCodeRelationship instanceof Extends){
+
+				hasTypeRelations.add((Extends) abstractCodeRelationship);
+
+			}
+
+		}
+
+		return hasTypeRelations;
+	}
+
+	@Override
+	public List<Extends> getAllRelationshipOf(BlockUnit blockToAvaliate) {
+		List<Extends> hasTypeRelations = new ArrayList<Extends>();
+
+		for (AbstractCodeElement abstractCodeElement : blockToAvaliate.getCodeElement()) {
+
+			if(abstractCodeElement instanceof ActionElement){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((ActionElement)abstractCodeElement));
+			}else if(abstractCodeElement instanceof StorableUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((StorableUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof TryUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((TryUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof CatchUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((CatchUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof BlockUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((BlockUnit)abstractCodeElement));
+			}
+
+		}
+
+		return hasTypeRelations;
+	}
+
+	@Override
+	public List<Extends> getAllRelationshipOf(ActionElement actionElementToAvaliate) {
+		List<Extends> hasTypeRelations = new ArrayList<Extends>();
+
+		for (AbstractCodeElement abstractCodeElement : actionElementToAvaliate.getCodeElement()) {
+
+			if(abstractCodeElement instanceof ActionElement){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((ActionElement)abstractCodeElement));
+			}else if(abstractCodeElement instanceof StorableUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((StorableUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof TryUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((TryUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof CatchUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((CatchUnit)abstractCodeElement));
+			}else if(abstractCodeElement instanceof BlockUnit){
+				hasTypeRelations.addAll(this.getAllRelationshipOf((BlockUnit)abstractCodeElement));
+			}
+
+		}
+
+		return hasTypeRelations;
 	}
 
 }

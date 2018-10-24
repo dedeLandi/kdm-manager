@@ -1,6 +1,6 @@
 /********************************************************************************
  *																				*
- * Copyright (c) 2016, André de Souza Landi. All rights reserved.				*
+ * Copyright (c) 2016, Andrï¿½ de Souza Landi. All rights reserved.				*
  *																				*
  * This file is part of KDM-MANAGER software.									*
  *																				*
@@ -195,6 +195,11 @@ public class KDMRecoverCodeStructureHierarchyFirstArchitecturalElementImpl imple
 
 	@Override
 	public AbstractStructureElement getHierarchyOf(MethodUnit methodToAvaliate) {
+		
+		if(this.validateArchitecturalElement(methodToAvaliate)){
+			return this.architecturalElementIs;
+		}
+		
 		AbstractStructureElement value = null;
 		if(methodToAvaliate.eContainer() instanceof ClassUnit){
 			value = this.getHierarchyOf((ClassUnit) methodToAvaliate.eContainer());
